@@ -1,56 +1,238 @@
-.footer {
-  padding: 4rem 1.5rem 3rem 1.5rem;
-  border-top: 1px solid rgba(216, 203, 196, 0.4);
+.footerWrapper {
+  padding: 5rem 1.5rem 8rem 1.5rem;
   position: relative;
   z-index: 10;
+  background: transparent;
 }
 
 .footerContainer {
-  max-width: var(--max-width);
+  max-width: 1060px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* 1. Header Row */
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.authorBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.avatarBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(238, 155, 124, 0.25), rgba(200, 180, 230, 0.35));
+  border: 1px solid rgba(238, 155, 124, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent-coral);
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(238, 155, 124, 0.15);
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.authorName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.authorRole {
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.backToTopBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background: #ffffff;
+  border: 1px solid rgba(216, 203, 196, 0.6);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-spring);
+  box-shadow: 0 2px 6px rgba(70, 60, 55, 0.05);
+}
+
+.backToTopBtn:hover {
+  background: #ffffff;
+  color: var(--accent-coral);
+  border-color: rgba(238, 155, 124, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(238, 155, 124, 0.2);
+}
+
+/* 2. Big Animated Card */
+.bigBannerCard {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(216, 203, 196, 0.55);
+  border-radius: 28px;
+  padding: 4.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 48px rgba(70, 60, 55, 0.06), 0 2px 6px rgba(70, 60, 55, 0.02);
+  min-height: 240px;
+}
+
+.innovatePill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(216, 203, 196, 0.5);
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(70, 60, 55, 0.04);
+}
+
+.animatedTitle {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  margin-top: 1.25rem;
+  text-align: center;
+  line-height: 1.15;
+  transition: opacity 0.35s ease, filter 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+
+.animatingOut {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(8px) scale(0.98);
+}
+
+.animatingIn {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0) scale(1);
+}
+
+/* 3. Navigation Links Row */
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.footerLink {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: var(--text-primary);
+}
+
+/* 4. Divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(216, 203, 196, 0.45);
+  margin: 0.25rem 0;
+}
+
+/* 5. Bottom Row: Social & Copyright */
+.bottomRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
-.brandNote {
+.socialButtons {
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  align-items: center;
+  gap: 0.65rem;
 }
 
-.brandName {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.brandDesc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.backToTop {
-  display: inline-flex;
+.socialCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  gap: 0.4rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  background: #ffffff;
+  border: 1px solid rgba(216, 203, 196, 0.5);
   color: var(--text-secondary);
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--radius-pill);
-  background: var(--surface-pill);
-  border: 1px solid var(--border-subtle);
-  transition: all var(--duration-normal) var(--ease-spring);
+  text-decoration: none;
+  transition: all 0.25s var(--ease-spring);
+  box-shadow: 0 1px 4px rgba(70, 60, 55, 0.04);
 }
 
-.backToTop:hover {
-  background: #ffffff;
-  color: var(--text-primary);
+.socialCircle:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-subtle);
+  color: var(--accent-coral);
+  border-color: rgba(238, 155, 124, 0.8);
+  box-shadow: 0 6px 16px rgba(238, 155, 124, 0.2);
+}
+
+.copyrightText {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .footerWrapper {
+    padding: 3.5rem 1rem 7.5rem 1rem;
+  }
+
+  .bigBannerCard {
+    padding: 3.5rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .navRow {
+    gap: 1.25rem;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
 }

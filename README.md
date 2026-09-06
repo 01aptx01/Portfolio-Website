@@ -132,6 +132,17 @@ Each section has been photographed with tightly-cropped, high-resolution viewpor
 
 ---
 
+### 9. Editorial Master Footer & Animated Role Switcher
+> Lightswind-inspired bottom showcase featuring real-time text-flip animation, author branding, and quick navigation.
+
+![Footer Section Preview](docs/assets/preview/footer-preview.png)
+
+- **Blur-Fade Role Cycler**: Smooth Gaussian-blur and scale-interpolated text transition cycling through engineering disciplines (*"Full-Stack Developer"*, *"UI/UX Architect"*, *"Distributed Systems Engineer"*, *"AI & ML Researcher"*).
+- **Author Identity**: Gradient monogram badge with name, role subtitle, and one-click back-to-top trigger.
+- **Footer Navigation & Social Hub**: Direct anchor links and frosted circular icons for GitHub, LinkedIn, and direct mail.
+
+---
+
 ## 📂 Project Architecture
 
 ```
@@ -163,7 +174,8 @@ Portfolio-Website/
 │   │   ├── About.tsx            # Personal background & engineering ethos
 │   │   ├── Projects.tsx         # Bento Grid showcase
 │   │   ├── Experience.tsx       # RAF lerp scroll timeline
-│   │   └── Contact.tsx          # 1-click clipboard contact card
+│   │   ├── Contact.tsx          # 1-click clipboard contact card
+│   │   └── Footer.tsx           # Master footer with animated text rotator
 │   └── data/                    # Type-safe Single-Source-of-Truth
 │       ├── types.ts             # Domain models (Profile, Project, Experience)
 │       ├── profile.ts           # Author bio, contact, and social links
