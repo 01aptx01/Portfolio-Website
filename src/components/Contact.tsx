@@ -69,12 +69,14 @@ export default function Contact() {
               <span>Send Direct Email</span>
             </a>
             <a
-              href="#hero"
+              href={profileData.resumeUrl || "https://www.canva.com"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
               id="btn-view-resume"
             >
               <FileText size={16} />
-              <span>Download Resume</span>
+              <span>View Resume (Canva)</span>
             </a>
           </div>
 

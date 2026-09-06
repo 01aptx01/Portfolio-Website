@@ -2,42 +2,43 @@ import { ExperienceItem } from "./types";
 
 export const experienceData: ExperienceItem[] = [
   {
-    role: "Senior Full-Stack Software Engineer",
-    company: "Symphony Labs",
-    location: "Bangkok / Remote",
-    period: "2023 - Present",
-    type: "Work",
-    highlights: [
-      "Architected and deployed high-performance microservices handling over 5M daily requests with 99.99% availability.",
-      "Spearheaded design system modernization reducing frontend development cycle times by 35%.",
-      "Mentored junior engineers on clean domain modeling, automated testing (TDD), and system observability."
-    ],
-    technologies: ["TypeScript", "Next.js", "Go", "Kafka", "PostgreSQL", "Docker"],
-  },
-  {
-    role: "Software Engineer",
-    company: "Vanguard Tech",
+    role: "Undergraduate Researcher & Student Assistant",
+    company: "King Mongkut's University of Technology Thonburi (KMUTT)",
     location: "Bangkok, Thailand",
-    period: "2022 - 2023",
+    period: "2024 - Present",
     type: "Work",
     highlights: [
-      "Engineered real-time data ingestion pipelines and collaborative client dashboards with WebSockets.",
-      "Optimized database indexes and query caching strategies, achieving a 60% reduction in p95 response latencies.",
-      "Built automated end-to-end testing suites with Playwright to maintain regression-free production releases."
+      "Supported university academic research and department operations under the KMUTT Student Employment Scholarship Program (ทุนจ้างงานนักศึกษา).",
+      "Assisted computer science faculty with laboratory curriculum, automated testing setups, and student technical infrastructure.",
+      "Collaborated with academic peers on distributed algorithms and applied machine learning research prototypes."
     ],
-    technologies: ["React", "Node.js", "GraphQL", "Redis", "Jest", "AWS"],
+    technologies: ["Python", "TypeScript", "Linux", "Git", "Applied Research", "Machine Learning"],
   },
   {
-    role: "Bachelor of Science in Computer Science",
-    company: "Faculty of Science, University",
-    location: "Thailand",
-    period: "2018 - 2022",
+    role: "Lead Systems Architect (Capstone Project)",
+    company: "Department of Applied Computer Science, KMUTT",
+    location: "Bangkok, Thailand",
+    period: "2024 - 2025",
+    type: "Milestone",
+    highlights: [
+      "Architected a decoupled Agent-Server distributed vending fleet platform with resilient state synchronization.",
+      "Designed low-latency protocol communication between edge IoT vending controllers and central management microservices.",
+      "Engineered real-time telemetry dashboards and automated fault recovery mechanisms."
+    ],
+    technologies: ["TypeScript", "Node.js", "Docker", "Distributed Systems", "WebSockets", "REST APIs"],
+  },
+  {
+    role: "Bachelor of Science in Applied Computer Science",
+    company: "King Mongkut's University of Technology Thonburi (KMUTT)",
+    location: "Bangkok, Thailand",
+    period: "2024 - 2028 (Expected)",
     type: "Education",
     highlights: [
-      "First Class Honours with core focus on Distributed Systems, Algorithms, and Software Engineering Principles.",
-      "Published capstone research on fault-tolerant distributed consensus mechanisms.",
-      "President of the Computer Science Student Club, organizing tech workshops and annual hackathons."
+      "Cumulative GPAX: 3.50 / 4.00, demonstrating strong academic excellence across theoretical and applied computer science.",
+      "Core coursework: Distributed Systems, Machine Learning, Data Structures & Algorithms, Network Security, Database Systems, and Operating Systems.",
+      "Recipient of KMUTT University Student Work-Study Scholarship (ทุนจ้างงานนักศึกษา)."
     ],
-    technologies: ["Data Structures & Algorithms", "Distributed Systems", "Database Theory", "OS & Networking"],
+    technologies: ["Data Structures & Algorithms", "Machine Learning", "Distributed Computing", "Computer Networks", "Database Systems"],
   },
 ];
+

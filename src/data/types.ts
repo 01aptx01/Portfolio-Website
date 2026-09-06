@@ -9,7 +9,7 @@ export interface Project {
   title: string;
   tagline: string;
   description: string;
-  category: "Full-Stack" | "Backend & Systems" | "Frontend & UI";
+  category: "Full-Stack" | "Backend & Systems" | "Frontend & UI" | "AI & Machine Learning";
   featured: boolean;
   role: string;
   timeline: string;
@@ -55,6 +55,7 @@ export interface ProfileData {
   location: string;
   status: string;
   email: string;
+  resumeUrl?: string;
   socials: {
     github: string;
     linkedin: string;
