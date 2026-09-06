@@ -71,9 +71,6 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🌐 Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -87,6 +84,10 @@ jobs:
         run: npm run build
         env:
           GITHUB_ACTIONS: "true"
+
+      - name: 🌐 Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        continue-on-error: true
 
       - name: 📦 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
