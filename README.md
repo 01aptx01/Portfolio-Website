@@ -14,7 +14,7 @@
 
 <br />
 
-[Overview](#-overview) • [Interface Showcase](#-interface-showcase) • [Key Features](#-key-features) • [Architecture](#-project-architecture) • [Getting Started](#-getting-started) • [Content Guide](#-content-customization-guide) • [CI/CD](#-cicd-automation-pipeline)
+[Overview](#-overview) • [Interface Showcase](#-interface-showcase) • [Architecture](#-project-architecture) • [Getting Started](#-getting-started) • [Content Guide](#-content-customization-guide) • [CI/CD](#-cicd-automation-pipeline)
 
 </div>
 
@@ -24,21 +24,24 @@
 
 The **Editorial Developer Portfolio** is an interactive, tactile web experience crafted for **Teeranan Pakdeekhan (Dew)** — Computer Science Undergraduate (Class of 2028, GPAX 3.5), Software Engineer & Distributed Systems Researcher.
 
-Designed around morning dawn lighting aesthetics, editorial typography, and buttery 60/120fps physics animations, the website showcases production projects, core capabilities, academic research, and technical milestones without third-party CSS framework overhead.
+Designed around morning dawn lighting aesthetics, editorial typography, and buttery 60/120fps physics animations, the website showcases production projects, core engineering disciplines, academic research, and technical milestones without third-party CSS framework overhead.
 
 ### ✨ Highlights at a Glance
 
 - **Trajectory 3D WebGL Origami Centerpiece**: Real-time canvas tracking scroll depth with physics-based flight angle and stippled wind trail.
 - **Smart Directional Navbar**: Auto-hides smoothly when scrolling down and reappears instantly when scrolling up, maintaining clean reading focus.
 - **Glassmorphic Floating Dock**: macOS-inspired bottom quick navigation pill with active section indicators, interactive tooltips, and automatic Hero-screen suppression.
-- **Physics-Damped Experience Timeline**: Real-time requestAnimationFrame (RAF) lerp-damped scroll progress line with a glowing head follower and expanding milestone rings.
+- **Physics-Damped Experience Timeline**: Real-time `requestAnimationFrame` (RAF) lerp-damped scroll progress line with a glowing head follower and expanding milestone rings.
 - **Authentic Brand Tech Marquee**: Dual-stream endless ticker rendering official vector SVG tech logos with monochromatic frosted glass cards.
+- **Core Engineering Disciplines**: Four-pillar capabilities grid (Distributed Systems, AI/NLP, Full-Stack 3D, and Systems Architecture).
 - **Decoupled Data Architecture**: Strongly typed TypeScript single-source-of-truth modules (`src/data/*`) separating content completely from markup.
 - **Static Site Generation (SSG)**: Blazing fast sub-second load times with pre-rendered HTML and dynamic project case studies (`/projects/[slug]`).
 
 ---
 
 ## 📸 Interface Showcase
+
+Each section has been photographed with tightly-cropped, high-resolution viewports to highlight individual design and engineering features.
 
 ### 1. Hero Section & Origami Flight Canvas
 > Features real-time WebGL paper airplane physics, dawn atmospheric blooms, availability pulse indicator, and frosted glass CTAs.
@@ -51,17 +54,28 @@ Designed around morning dawn lighting aesthetics, editorial typography, and butt
 
 ---
 
-### 2. Tech Stack Marquee & Core Capabilities
-> Dual continuous ticker displaying authentic brand vector logos paired with three-pillar engineering capabilities.
+### 2. Editorial About & Engineering Mindset
+> A warm, magazine-style introduction outlining academic background, core technical principles, and problem-solving mindset.
+
+![About Section Preview](docs/assets/preview/about-preview.png)
+
+- **Tactile Glass Card**: High-contrast typography on frosted translucent backdrop (`backdrop-filter: blur(16px)`).
+- **Core Principles**: Highlights detailing production resilience, distributed architectures, and continuous research.
+- **Key Metrics**: Quantified academic metrics including Year 3 status and GPAX 3.5.
+
+---
+
+### 3. Tech Stack Marquee & Core Disciplines
+> Continuous dual-stream ticker displaying authentic brand vector logos paired with four core engineering disciplines.
 
 ![Marquee and Capabilities Preview](docs/assets/preview/marquee-capabilities-preview.png)
 
 - **Authentic Vector Logos**: Official SVGs for Next.js, TypeScript, React, Node.js, Python, PostgreSQL, Docker, Tailwind CSS, and Git.
-- **Capabilities Matrix**: Clear focus areas covering Frontend Craft, Distributed Systems, and AI & Computer Vision.
+- **Engineering Disciplines**: Four focused competency cards covering Distributed Systems & Backend, AI & Machine Learning, Full-Stack & Interactive 3D, and Systems Architecture.
 
 ---
 
-### 3. Bento Grid Project Showcase
+### 4. Bento Grid Project Showcase
 > Asymmetrical visual hierarchy prioritizing flagship software engineering case studies.
 
 ![Bento Grid Projects Preview](docs/assets/preview/bento-projects-preview.png)
@@ -72,7 +86,22 @@ Designed around morning dawn lighting aesthetics, editorial typography, and butt
 
 ---
 
-### 4. Physics-Damped Milestones & Experience Timeline
+### 5. Dynamic Case Study Routes (`/projects/[slug]`)
+> In-depth system case studies providing recruiters and engineering leads with architectural proof points.
+
+#### Top Hero & Impact Metrics
+![Project Detail Hero](docs/assets/preview/project-detail-hero.png)
+
+#### Architecture Diagram & Technical Decisions
+![Project Detail Architecture](docs/assets/preview/project-detail-architecture.png)
+
+- **Impact Metric Pills**: Quantified results (e.g., *"< 120ms Latency"*, *"100k+ Events/sec"*).
+- **Architecture Callout Block**: Visual system flow diagrams and technical stack breakdowns.
+- **Return Navigation**: Seamless back-button preserving scroll state and user orientation.
+
+---
+
+### 6. Physics-Damped Milestones & Experience Timeline
 > Chronological narrative of university research, academic roles, and software contributions.
 
 ![Experience Timeline Preview](docs/assets/preview/experience-preview.png)
@@ -83,7 +112,7 @@ Designed around morning dawn lighting aesthetics, editorial typography, and butt
 
 ---
 
-### 5. Floating Navigation Dock & Smart Navbar
+### 7. Floating Navigation Dock & Smart Directional Navbar
 > macOS-style bottom dock with instant section jumping and responsive top bar.
 
 ![Floating Dock Preview](docs/assets/preview/floating-dock-preview.png)
@@ -93,7 +122,7 @@ Designed around morning dawn lighting aesthetics, editorial typography, and butt
 
 ---
 
-### 6. Interactive Contact Pill & Instant Feedback
+### 8. Interactive Contact Pill & Instant Feedback
 > One-click email clipboard copy with visual feedback toast and social channels.
 
 ![Contact Section Preview](docs/assets/preview/contact-toast-preview.png)
@@ -130,16 +159,15 @@ Portfolio-Website/
 │   │   ├── FloatingDock.tsx     # Bottom quick navigation dock
 │   │   ├── Hero.tsx             # 3D Origami canvas & headline
 │   │   ├── TechMarquee.tsx      # Dual-stream vector tech stack marquee
-│   │   ├── Capabilities.tsx     # Three-pillar capabilities cards
+│   │   ├── WhatIDo.tsx          # Core engineering disciplines grid
 │   │   ├── About.tsx            # Personal background & engineering ethos
 │   │   ├── Projects.tsx         # Bento Grid showcase
 │   │   ├── Experience.tsx       # RAF lerp scroll timeline
 │   │   └── Contact.tsx          # 1-click clipboard contact card
 │   └── data/                    # Type-safe Single-Source-of-Truth
-│       ├── types.ts             # Domain models (Profile, Project, Experience, Capability)
+│       ├── types.ts             # Domain models (Profile, Project, Experience)
 │       ├── profile.ts           # Author bio, contact, and social links
 │       ├── projects.ts          # Complete case studies & metrics
-│       ├── capabilities.ts      # Core competencies
 │       └── experience.ts        # Academic history, milestones & research
 ├── package.json
 ├── tsconfig.json
