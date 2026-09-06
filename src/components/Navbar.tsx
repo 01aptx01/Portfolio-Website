@@ -22,13 +22,13 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="#projects" className={styles.navLink} id="nav-link-projects">
-              Projects
+            <Link href="#capabilities" className={styles.navLink} id="nav-link-capabilities">
+              Capabilities
             </Link>
           </li>
           <li>
-            <Link href="#skills" className={styles.navLink} id="nav-link-skills">
-              Skills
+            <Link href="#projects" className={styles.navLink} id="nav-link-projects">
+              Projects
             </Link>
           </li>
           <li>

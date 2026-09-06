@@ -1,0 +1,118 @@
+/* ==============================================================================
+   WhatIDo.module.css - Lightswind-Inspired 4-Pillar Capabilities Grid
+   Clean, elevated engineering disciplines with responsive bento cards
+   ============================================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.card {
+  position: relative;
+  background: var(--surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-spring), border-color 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-peach), var(--accent-coral), var(--accent-lavender));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  background: var(--surface-card-hover);
+  border-color: rgba(238, 155, 124, 0.7);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(216, 203, 196, 0.6);
+  color: var(--accent-indigo);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(90, 80, 75, 0.06);
+  transition: transform 0.3s var(--ease-spring), color 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.08) rotate(3deg);
+  color: var(--accent-coral);
+  border-color: rgba(238, 155, 124, 0.6);
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.tagPill {
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(216, 203, 196, 0.45);
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.card:hover .tagPill {
+  background: #ffffff;
+  border-color: rgba(238, 155, 124, 0.4);
+  color: var(--text-primary);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
