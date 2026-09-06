@@ -32,6 +32,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
   if (!project) {
     notFound();
+    return null;
   }
 
   return (

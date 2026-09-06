@@ -7,6 +7,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.25-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![CSS Modules](https://img.shields.io/badge/CSS%20Modules-Pure%20Vanilla-ff69b4?style=for-the-badge&logo=css3&logoColor=white)](https://github.com/css-modules/css-modules)
+[![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/01aptx01/Portfolio-Website/actions/workflows/ci-cd.yml)
 [![Static Site Generation](https://img.shields.io/badge/Render-SSG%20Static-success?style=for-the-badge&logo=vercel&logoColor=white)](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
 [![Code Quality](https://img.shields.io/badge/Architecture-SDLC%20%2B%20ADR-8A2BE2?style=for-the-badge)](#-architectural-decisions--governance)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
@@ -258,6 +259,33 @@ Edit [`src/data/skills.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/s
 
 ### Experience Timeline
 Edit [`src/data/experience.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/src/data/experience.ts) to update roles, dates, company names, and achievements.
+
+---
+
+## 🔄 CI/CD Automation Pipeline
+
+The repository integrates a full continuous integration and deployment workflow powered by **GitHub Actions** ([`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml)):
+
+```mermaid
+graph LR
+    Push([Push to main]) --> Checkout[Checkout Code]
+    Checkout --> Cache[Restore Next.js Cache]
+    Cache --> Install[npm ci]
+    Install --> TypeCheck[tsc --noEmit]
+    TypeCheck --> Lint[next lint]
+    Lint --> Build[next build]
+    Build --> Artifact[Upload Build Artifact]
+    Artifact --> Deploy[Deploy to GitHub Pages / Release]
+```
+
+- **Automated Quality Gates (CI)**:
+  - **Type Safety**: Strictly validates all TypeScript interfaces with `tsc --noEmit`.
+  - **ESLint**: Runs Next.js Core Web Vitals checks.
+  - **Optimized Build**: Verifies static generation (SSG) with zero warnings or errors.
+  - **Intelligent Caching**: Caches `.next/cache` and `~/.npm` across workflow runs for fast sub-minute builds.
+- **Continuous Deployment (CD)**:
+  - Automatically triggers on successful `push` to `main`.
+  - Uploads compiled production artifacts and prepares deployment to GitHub Pages or static cloud hosts.
 
 ---
 

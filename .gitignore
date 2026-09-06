@@ -28,7 +28,6 @@ dist/
 # --- Next.js Build Cache & Traces ---
 .next/cache/
 *.tsbuildinfo
-next-env.d.ts
 
 # --- Logs & Debugging ---
 logs/

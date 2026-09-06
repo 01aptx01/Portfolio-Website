@@ -1,0 +1,113 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ============================================================================
+  # Continuous Integration (CI) - Lint, Type Check, and Build
+  # ============================================================================
+  ci:
+    name: Build & Verify (CI)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: ⚡ Restore Next.js Build Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: 📦 Clean Dependency Install
+        run: npm ci
+
+      - name: 🔍 TypeScript Type Check
+        run: npm run typecheck
+
+      - name: 🧹 ESLint Verification
+        run: npm run lint
+
+      - name: 🏗️ Production Build
+        run: npm run build
+
+      - name: 📤 Upload Production Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build-artifact
+          path: |
+            .next/
+            public/
+          retention-days: 7
+
+  # ============================================================================
+  # Continuous Deployment (CD) - Production Deployment Preparation / GitHub Pages
+  # ============================================================================
+  cd:
+    name: Release & Deploy (CD)
+    needs: ci
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    # Grant standard GitHub Pages deployment permissions
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: 📦 Clean Dependency Install
+        run: npm ci
+
+      - name: 🏗️ Generate Static Pages (SSG)
+        run: npm run build
+
+      - name: 🌐 Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: 📦 Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .next/server/app
+
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true # Gracefully skip if GitHub Pages is not yet enabled in repo settings
