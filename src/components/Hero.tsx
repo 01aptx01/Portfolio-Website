@@ -123,14 +123,6 @@ export default function Hero() {
       </div>
 
       <div className={styles.heroContainer}>
-        {/* Top Eyebrow Pill Badge */}
-        <div className={styles.eyebrowWrapper}>
-          <div className={styles.eyebrowBadge}>
-            <span className={styles.pulseDot} aria-hidden="true" />
-            <span>Full-Stack Software Engineer • Available for Opportunities</span>
-          </div>
-        </div>
-
         {/* Centerpiece Stage: Split Typography & Live 3D WebGL Origami Paper Airplane */}
         <h1 className={styles.stageRow} ref={stageRowRef} aria-label="Teeranan Pakdeekhan">
           {/* Left Hero Word */}
