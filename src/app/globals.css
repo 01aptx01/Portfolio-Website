@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Dawn Pastel Editorial Design Tokens
+   Inspired by ethereal dawn skies, stippled illustration & clean typography
+   ========================================================================== */
+
+:root {
+  /* Dawn Sky Palette */
+  --dawn-sky-top-left: #fce8db;     /* Soft warm peach */
+  --dawn-sky-top-right: #e4e3f3;    /* Ethereal lavender */
+  --dawn-sky-mid: #f6e1d5;          /* Warm apricot glow */
+  --dawn-sky-bottom: #faf5f0;       /* Cloud cream / champagne */
+
+  /* Neutral Typography (Refined Slate / Charcoal) */
+  --text-primary: #181d28;          /* Deep ink slate */
+  --text-secondary: #404859;        /* Balanced neutral slate */
+  --text-muted: #697386;            /* Soft slate for captions */
+  --text-inverse: #ffffff;          /* White text for dark surfaces */
+
+  /* Accent & Highlight Colors */
+  --accent-peach: #f5c2a8;
+  --accent-coral: #ee9b7c;
+  --accent-lavender: #b8b7df;
+  --accent-gold: #ebb672;
+  --accent-indigo: #27364b;         /* Midnight slate button */
+  --accent-indigo-hover: #1c2737;
+
+  /* Glassmorphism & Surface Tokens */
+  --surface-cream: rgba(255, 255, 255, 0.72);
+  --surface-card: rgba(255, 255, 255, 0.65);
+  --surface-card-hover: rgba(255, 255, 255, 0.85);
+  --surface-pill: rgba(255, 255, 255, 0.55);
+  --border-subtle: rgba(255, 255, 255, 0.8);
+  --border-card: rgba(216, 203, 196, 0.45);
+  --border-card-hover: rgba(216, 190, 180, 0.8);
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 20px -2px rgba(90, 80, 75, 0.06);
+  --shadow-card: 0 10px 30px -5px rgba(90, 80, 75, 0.08), 0 2px 8px -1px rgba(90, 80, 75, 0.04);
+  --shadow-card-hover: 0 20px 40px -10px rgba(90, 80, 75, 0.14), 0 4px 12px -2px rgba(90, 80, 75, 0.06);
+  --shadow-pill: 0 2px 10px rgba(70, 60, 55, 0.05);
+
+  /* Layout & Spacing */
+  --max-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-normal: 250ms;
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif);
+  color: var(--text-primary);
+  background: 
+    radial-gradient(ellipse at 15% 10%, var(--dawn-sky-top-left) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 15%, var(--dawn-sky-top-right) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 45%, var(--dawn-sky-mid) 0%, transparent 65%),
+    linear-gradient(180deg, #fdf6f0 0%, var(--dawn-sky-bottom) 50%, #f7f1eb 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle stippled noise overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 999;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading, inherit);
+  color: var(--text-primary);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+/* Global Container Utility */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section Common Styling */
+.section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-pill);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-pill);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Common Pill Button Styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--accent-indigo);
+  color: var(--text-inverse);
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(39, 54, 75, 0.25);
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.btn-primary:hover {
+  background: var(--accent-indigo-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(39, 54, 75, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--surface-pill);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-pill);
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-card);
+}
+
+/* Keyframe animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
+}

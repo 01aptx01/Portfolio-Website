@@ -1,0 +1,54 @@
+.footer {
+  padding: 4rem 1.5rem 3rem 1.5rem;
+  border-top: 1px solid rgba(216, 203, 196, 0.4);
+  position: relative;
+  z-index: 10;
+}
+
+.footerContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.brandNote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.brandDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-pill);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.backToTop:hover {
+  background: #ffffff;
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+}

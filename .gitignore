@@ -1,0 +1,94 @@
+# ==============================================================================
+# Git Ignore - Next.js, TypeScript & Modern Web Development
+# World-Class Production Standard (Node.js, Next.js, OS & Editor Artifacts)
+# ==============================================================================
+
+# --- Dependencies ---
+node_modules/
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# --- Production & Build Outputs ---
+.next/
+out/
+build/
+dist/
+.output/
+
+# --- Environment Variables & Secrets ---
+# Never commit real credentials, tokens, or local secrets
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# --- Next.js Build Cache & Traces ---
+.next/cache/
+*.tsbuildinfo
+next-env.d.ts
+
+# --- Logs & Debugging ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Testing & Code Coverage ---
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+blob-report/
+
+# --- Operating System Files ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+
+# --- IDE & Editor Artifacts ---
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Temporary & Scratch Files ---
+.scratch/
+tmp/
+temp/
+*.tmp
+*.bak

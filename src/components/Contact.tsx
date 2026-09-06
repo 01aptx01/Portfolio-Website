@@ -1,0 +1,124 @@
+"use client";
+
+import { useState } from "react";
+import styles from "./Contact.module.css";
+import { profileData } from "@/data/profile";
+import { Mail, Copy, Check, Github, Linkedin, Twitter, FileText, Send } from "lucide-react";
+
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(profileData.email);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2500);
+  };
+
+  return (
+    <section className="section" id="contact">
+      <div className="container">
+        <div className={styles.contactBox}>
+          <div className="section-pill" style={{ marginBottom: "1.5rem" }}>
+            <Mail size={14} />
+            <span>Initiate Collaboration</span>
+          </div>
+
+          <h2 className={styles.contactTitle}>Let&apos;s build something exceptional.</h2>
+          <p className={styles.contactSubtitle}>
+            Whether you have a complex distributed systems challenge, an ambitious web application, or a high-impact engineering role.
+          </p>
+
+          {/* 1-Click Copyable Email Pill */}
+          <div
+            className={styles.emailPillContainer}
+            onClick={handleCopyEmail}
+            role="button"
+            tabIndex={0}
+            aria-label="Click to copy email address"
+            id="btn-copy-email"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleCopyEmail();
+              }
+            }}
+          >
+            <Mail size={18} color="var(--accent-coral)" />
+            <span className={styles.emailText}>{profileData.email}</span>
+            <div className={`${styles.copyButton} ${copied ? styles.copiedToast : ""}`}>
+              {copied ? (
+                <>
+                  <Check size={14} />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy size={14} />
+                  <span>Click to copy</span>
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Primary Action Buttons */}
+          <div className={styles.actionButtons}>
+            <a
+              href={`mailto:${profileData.email}?subject=Engineering%20Inquiry`}
+              className="btn-primary"
+              id="btn-send-email"
+            >
+              <Send size={16} />
+              <span>Send Direct Email</span>
+            </a>
+            <a
+              href="#hero"
+              className="btn-secondary"
+              id="btn-view-resume"
+            >
+              <FileText size={16} />
+              <span>Download Resume</span>
+            </a>
+          </div>
+
+          {/* Social Profiles */}
+          <div className={styles.socialRow}>
+            <a
+              href={profileData.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+              aria-label="GitHub Profile"
+              id="social-github"
+            >
+              <Github size={20} />
+            </a>
+            <a
+              href={profileData.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+              aria-label="LinkedIn Profile"
+              id="social-linkedin"
+            >
+              <Linkedin size={20} />
+            </a>
+            {profileData.socials.twitter && (
+              <a
+                href={profileData.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                aria-label="Twitter Profile"
+                id="social-twitter"
+              >
+                <Twitter size={20} />
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
