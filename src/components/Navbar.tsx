@@ -55,7 +55,7 @@ export default function Navbar() {
           <div className={styles.brandIcon}>
             <Send size={16} />
           </div>
-          <span>Dew.dev</span>
+          <span>Portfolio</span>
         </Link>
 
         <ul className={styles.links}>

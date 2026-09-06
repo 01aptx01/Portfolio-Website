@@ -33,16 +33,6 @@ jobs:
           node-version: 20
           cache: "npm"
 
-      - name: ⚡ Restore Next.js Build Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-
       - name: 📦 Clean Dependency Install
         run: npm ci
 
@@ -52,29 +42,20 @@ jobs:
       - name: 🧹 ESLint Verification
         run: npm run lint
 
-      - name: 🏗️ Production Build
+      - name: 🏗️ Production Build Verification
         run: npm run build
 
-      - name: 📤 Upload Production Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: nextjs-build-artifact
-          path: |
-            .next/
-            public/
-          retention-days: 7
-
   # ============================================================================
-  # Continuous Deployment (CD) - Production Deployment Preparation / GitHub Pages
+  # Continuous Deployment (CD) - Deploy to GitHub Pages (Main Branch Only)
   # ============================================================================
   cd:
-    name: Release & Deploy (CD)
+    name: Deploy to GitHub Pages (CD)
     needs: ci
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
-    # Grant standard GitHub Pages deployment permissions
+    # Required permissions for GitHub Pages
     permissions:
       contents: read
       pages: write
@@ -88,6 +69,9 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
+      - name: 🌐 Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -97,18 +81,16 @@ jobs:
       - name: 📦 Clean Dependency Install
         run: npm ci
 
-      - name: 🏗️ Generate Static Pages (SSG)
+      - name: 🏗️ Build & Export Static Site
         run: npm run build
-
-      - name: 🌐 Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        env:
+          GITHUB_ACTIONS: "true"
 
       - name: 📦 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .next/server/app
+          path: ./out
 
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        continue-on-error: true # Gracefully skip if GitHub Pages is not yet enabled in repo settings
