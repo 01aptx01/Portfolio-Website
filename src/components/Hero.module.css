@@ -1,6 +1,6 @@
 /* ==============================================================================
-   Hero Section - Trajectory.ai Inspired Layout & Aesthetics
-   Iconic Split Headline, Central Origami Plane & Bottom-Right Editorial Subtext
+   Hero Section - Trajectory.ai Master Aesthetics & Layout
+   Live WebGL 3D Origami Airplane, Authentic Stipple Clouds, Split Typography
    ============================================================================== */
 
 .heroSection {
@@ -10,14 +10,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 7rem 2rem 4rem 2rem;
+  padding: 7.5rem 2rem 4.5rem 2rem;
   overflow: hidden;
-  background: radial-gradient(circle at 12% 88%, #fce2cf 0%, transparent 48%),
-              radial-gradient(circle at 88% 12%, #d7e4f7 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, #faf5ee 0%, #f6ebe0 100%);
+  background-color: #faf5ee;
 }
 
-/* Atmospheric Ambient Lighting */
+/* 1. Backdrop Layer */
+.backdropLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.88;
+}
+
+.backdropImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 2. Atmospheric Ambient Lighting Glows */
 .skyAtmosphere {
   position: absolute;
   inset: 0;
@@ -27,51 +39,52 @@
 
 .peachBloom {
   position: absolute;
-  bottom: -5%;
-  left: -8%;
-  width: 600px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(254, 219, 194, 0.85) 0%, rgba(254, 219, 194, 0) 70%);
-  filter: blur(50px);
+  bottom: -8%;
+  left: -10%;
+  width: 700px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(254, 219, 194, 0.75) 0%, rgba(254, 219, 194, 0) 70%);
+  filter: blur(55px);
 }
 
 .lavenderGlow {
   position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 550px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(220, 222, 246, 0.8) 0%, rgba(220, 222, 246, 0) 70%);
-  filter: blur(55px);
+  top: -12%;
+  right: -8%;
+  width: 650px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(220, 222, 246, 0.75) 0%, rgba(220, 222, 246, 0) 70%);
+  filter: blur(60px);
 }
 
-/* Flanking Textured Clouds */
+/* 3. Authentic Pointillism Clouds */
 .cloudLeft {
   position: absolute;
-  left: -4%;
-  bottom: 6%;
-  width: clamp(340px, 34vw, 560px);
+  left: -6%;
+  bottom: 0%;
+  width: clamp(380px, 42vw, 720px);
   pointer-events: none;
   z-index: 2;
-  animation: cloudBreatheLeft 14s ease-in-out infinite;
-  filter: drop-shadow(0 15px 30px rgba(120, 100, 130, 0.12));
+  animation: cloudBreatheLeft 16s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(120, 100, 130, 0.1));
 }
 
 .cloudRight {
   position: absolute;
-  right: 2%;
-  top: 18%;
-  width: clamp(260px, 26vw, 440px);
+  right: 1%;
+  top: 15%;
+  width: clamp(280px, 30vw, 520px);
   pointer-events: none;
   z-index: 2;
-  animation: cloudBreatheRight 16s ease-in-out infinite 2s;
-  filter: drop-shadow(0 12px 25px rgba(110, 105, 140, 0.1));
+  animation: cloudBreatheRight 18s ease-in-out infinite 2s;
+  filter: drop-shadow(0 15px 30px rgba(110, 105, 140, 0.08));
 }
 
-.cloudSvg {
+.cloudImg {
   width: 100%;
   height: auto;
   display: block;
+  user-select: none;
 }
 
 @keyframes cloudBreatheLeft {
@@ -79,7 +92,7 @@
     transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-15px) scale(1.02);
   }
 }
 
@@ -88,24 +101,24 @@
     transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(14px) scale(0.98);
+    transform: translateY(16px) scale(0.98);
   }
 }
 
-/* Main Content Container */
+/* 4. Main Hero Container */
 .heroContainer {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1380px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.25rem;
 }
 
-/* 1. Eyebrow Badge (Center Top) */
+/* 5. Eyebrow Badge (Center Top) */
 .eyebrowWrapper {
   display: flex;
   justify-content: center;
@@ -116,23 +129,23 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.45rem 1.35rem;
+  padding: 0.45rem 1.4rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(51, 72, 97, 0.38);
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 72, 97, 0.35);
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   font-size: 0.875rem;
   font-weight: 500;
   color: #334861;
   letter-spacing: -0.01em;
-  box-shadow: 0 2px 10px rgba(51, 72, 97, 0.05);
+  box-shadow: 0 4px 16px rgba(51, 72, 97, 0.06);
   transition: all 0.3s ease;
 }
 
 .eyebrowBadge:hover {
-  background: rgba(255, 255, 255, 0.7);
-  border-color: rgba(51, 72, 97, 0.6);
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(51, 72, 97, 0.55);
   transform: translateY(-1px);
 }
 
@@ -144,14 +157,14 @@
   box-shadow: 0 0 0 3px rgba(56, 176, 0, 0.22);
 }
 
-/* 2. Central Split Headline & Origami Paper Plane */
+/* 6. Central Split Headline & 3D WebGL Airplane */
 .stageRow {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem 0 2rem 0;
+  margin: 1rem 0 2rem 0;
 }
 
 .displayLeft {
@@ -182,45 +195,33 @@
 
 .planeWrapper {
   position: relative;
-  width: clamp(180px, 24vw, 320px);
-  height: clamp(140px, 19vw, 260px);
-  margin: 0 -1.5rem;
+  width: clamp(260px, 30vw, 460px);
+  height: clamp(260px, 30vw, 460px);
+  margin: 0 -3.5rem;
   z-index: 15;
   flex-shrink: 0;
-  transform: rotate(2deg);
-  animation: planeHover 5.5s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  --plane-scale: 0.72;
 }
 
-.planeSvg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  filter: drop-shadow(0 24px 34px rgba(120, 95, 90, 0.24));
-}
-
-@keyframes planeHover {
-  0%, 100% {
-    transform: translateY(0px) rotate(2deg);
-  }
-  50% {
-    transform: translateY(-14px) rotate(4deg);
+@media (min-width: 1200px) {
+  .planeWrapper {
+    --plane-scale: 0.75;
+    margin: 0 -4rem;
   }
 }
 
-.stippleTrail {
-  animation: trailPulse 3.5s ease-in-out infinite;
-}
-
-@keyframes trailPulse {
-  0%, 100% {
-    opacity: 0.9;
-  }
-  50% {
-    opacity: 0.72;
+@media (min-width: 1600px) {
+  .planeWrapper {
+    --plane-scale: 0.85;
+    margin: 0 -4.5rem;
   }
 }
 
-/* 3. Bottom Row: Right-Aligned Subtext & CTA Card */
+/* 7. Bottom Row: Right-Aligned Subtext & CTA Card */
 .bottomRow {
   width: 100%;
   display: flex;
@@ -282,10 +283,10 @@
   gap: 0.4rem;
   padding: 0.85rem 1.5rem;
   border-radius: var(--radius-pill);
-  background: rgba(254, 226, 207, 0.65);
+  background: rgba(254, 226, 207, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(254, 200, 175, 0.85);
+  border: 1px solid rgba(254, 200, 175, 0.9);
   color: #334861;
   font-size: 0.95rem;
   font-weight: 600;
@@ -312,7 +313,7 @@
     gap: 0.5rem;
   }
   .planeWrapper {
-    margin: 0 -0.75rem;
+    margin: 0 -1.5rem;
   }
   .bottomRow {
     justify-content: center;
@@ -348,9 +349,9 @@
   }
 
   .planeWrapper {
-    width: 220px;
-    height: 170px;
-    margin: -1rem 0;
+    width: 280px;
+    height: 220px;
+    margin: -0.5rem 0;
   }
 
   .cloudLeft,
