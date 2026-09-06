@@ -1,12 +1,38 @@
 "use client";
 
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 import { Send } from "lucide-react";
 
 export default function Navbar() {
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Always show when near the very top
+      if (currentScrollY < 60) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current + 8 && currentScrollY > 100) {
+        // Scrolling down -> smoothly hide
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY.current - 8) {
+        // Scrolling up -> smoothly reveal
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${!isVisible ? styles.headerHidden : ""}`}>
       <nav className={styles.navContainer} aria-label="Main Navigation">
         <Link href="/" className={styles.brand} id="nav-brand">
           <div className={styles.brandIcon}>

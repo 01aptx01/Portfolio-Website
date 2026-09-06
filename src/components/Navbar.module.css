@@ -8,6 +8,12 @@
   justify-content: center;
   padding: 0 1.25rem;
   pointer-events: none;
+  transition: transform 0.4s var(--ease-spring), opacity 0.35s ease;
+}
+
+.headerHidden {
+  transform: translateY(-135%);
+  opacity: 0;
 }
 
 .navContainer {

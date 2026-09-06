@@ -5,26 +5,27 @@
   padding-left: 2rem;
 }
 
-.timelineContainer::before {
-  content: "";
+.timelineTrack {
   position: absolute;
-  top: 0.5rem;
-  bottom: 0.5rem;
+  top: 0.75rem;
+  bottom: 0.75rem;
   left: 7px;
   width: 2px;
-  background: linear-gradient(180deg, var(--accent-peach) 0%, var(--accent-coral) 50%, var(--accent-lavender) 100%);
-  background-size: 100% 200%;
-  animation: pulseTimeline 6s ease infinite alternate;
+  background: rgba(216, 203, 196, 0.45);
   border-radius: 2px;
 }
 
-@keyframes pulseTimeline {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 0% 100%;
-  }
+.timelineProgressLine {
+  position: absolute;
+  top: 0.75rem;
+  left: 7px;
+  width: 2px;
+  max-height: calc(100% - 1.5rem);
+  background: linear-gradient(180deg, var(--accent-coral) 0%, #ee9b7c 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(238, 155, 124, 0.7);
+  transition: height 0.12s ease-out;
+  z-index: 1;
 }
 
 .timelineItem {
@@ -36,22 +37,31 @@
   margin-bottom: 0;
 }
 
+/* Concentric ring dot matching user reference */
 .timelineDot {
   position: absolute;
-  top: 0.25rem;
+  top: 0.35rem;
   left: -2rem;
   width: 16px;
   height: 16px;
   border-radius: 50%;
   background: #ffffff;
-  border: 3px solid var(--accent-coral);
-  box-shadow: 0 0 0 4px rgba(238, 155, 124, 0.2);
-  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+  border: 2.5px solid rgba(216, 203, 196, 0.65);
+  box-shadow: 0 0 0 3px rgba(216, 203, 196, 0.2);
+  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.timelineDot.dotActive {
+  border-color: var(--accent-coral);
+  box-shadow: 0 0 0 4px rgba(238, 155, 124, 0.28), 0 0 12px rgba(238, 155, 124, 0.4);
+  transform: scale(1.2);
 }
 
 .timelineItem:hover .timelineDot {
-  transform: scale(1.3);
-  box-shadow: 0 0 0 8px rgba(238, 155, 124, 0.3);
+  transform: scale(1.35);
+  border-color: var(--accent-coral);
+  box-shadow: 0 0 0 6px rgba(238, 155, 124, 0.35), 0 0 16px rgba(238, 155, 124, 0.5);
 }
 
 .experienceCard {

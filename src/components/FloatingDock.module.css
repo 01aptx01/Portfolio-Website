@@ -7,10 +7,23 @@
   position: fixed;
   bottom: 1.5rem;
   left: 50%;
-  transform: translateX(-50%);
-  z-index: 900;
+  transform: translateX(-50%) translateY(32px);
+  opacity: 0;
   pointer-events: none;
-  transition: transform 0.35s var(--ease-spring), opacity 0.3s ease;
+  z-index: 900;
+  transition: transform 0.4s var(--ease-spring), opacity 0.35s ease;
+}
+
+.dockVisible {
+  transform: translateX(-50%) translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.dockHidden {
+  transform: translateX(-50%) translateY(32px) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .dockContainer {

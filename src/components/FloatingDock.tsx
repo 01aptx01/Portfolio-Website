@@ -31,6 +31,24 @@ const dockItems: DockItem[] = [
 
 export default function FloatingDock() {
   const [activeSection, setActiveSection] = useState<string>("hero");
+  const [isPastHero, setIsPastHero] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Show only when scrolled down past the first screen (Hero)
+    const handleScroll = () => {
+      const heroEl = document.getElementById("hero");
+      if (heroEl) {
+        const rect = heroEl.getBoundingClientRect();
+        setIsPastHero(rect.bottom < window.innerHeight * 0.5);
+      } else {
+        setIsPastHero(window.scrollY > 400);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const sectionIds = ["hero", "about", "capabilities", "projects", "experience", "contact"];
@@ -67,7 +85,7 @@ export default function FloatingDock() {
 
   return (
     <nav
-      className={styles.dockWrapper}
+      className={`${styles.dockWrapper} ${isPastHero ? styles.dockVisible : styles.dockHidden}`}
       aria-label="Quick dock navigation"
       role="navigation"
     >
