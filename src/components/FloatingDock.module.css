@@ -1,0 +1,161 @@
+/* ==============================================================================
+   FloatingDock.module.css - macOS / Lightswind-Inspired Bottom Navigation Dock
+   Glassmorphic bottom-fixed pill with interactive circular action buttons
+   ============================================================================== */
+
+.dockWrapper {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  pointer-events: none;
+  transition: transform 0.35s var(--ease-spring), opacity 0.3s ease;
+}
+
+.dockContainer {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(216, 203, 196, 0.65);
+  box-shadow: 0 12px 36px rgba(70, 60, 55, 0.12), 0 2px 8px rgba(70, 60, 55, 0.04);
+}
+
+.dockButton {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid rgba(216, 203, 196, 0.5);
+  color: var(--text-secondary);
+  box-shadow: 0 2px 6px rgba(70, 60, 55, 0.06);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-spring);
+  outline: none;
+  flex-shrink: 0;
+}
+
+.dockButton:hover,
+.dockButton:focus-visible {
+  transform: scale(1.15) translateY(-3px);
+  color: var(--accent-coral);
+  border-color: rgba(238, 155, 124, 0.8);
+  box-shadow: 0 8px 20px rgba(238, 155, 124, 0.25);
+  z-index: 10;
+}
+
+.dockButton:focus-visible {
+  outline: 2px solid var(--accent-coral);
+  outline-offset: 2px;
+}
+
+/* Active Section Indicator */
+.dockButton.active {
+  background: var(--text-primary);
+  color: #ffffff;
+  border-color: var(--text-primary);
+  box-shadow: 0 4px 14px rgba(24, 29, 40, 0.25);
+}
+
+.dockButton.active:hover {
+  background: var(--text-primary);
+  color: #ffffff;
+  transform: scale(1.15) translateY(-3px);
+  box-shadow: 0 8px 22px rgba(24, 29, 40, 0.35);
+}
+
+/* Floating Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 0.325rem 0.65rem;
+  border-radius: 6px;
+  background: #181d28;
+  color: #ffffff;
+  font-size: 0.725rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s var(--ease-spring);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: #181d28 transparent transparent transparent;
+}
+
+.dockButton:hover .tooltip,
+.dockButton:focus-visible .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Special Highlight for Send / Quick Action */
+.sendButton {
+  background: linear-gradient(135deg, rgba(238, 155, 124, 0.15), rgba(243, 182, 100, 0.15));
+  border-color: rgba(238, 155, 124, 0.6);
+  color: var(--accent-coral);
+}
+
+.sendButton:hover {
+  background: var(--accent-coral);
+  color: #ffffff;
+  border-color: var(--accent-coral);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .dockWrapper {
+    bottom: 1rem;
+    width: calc(100% - 2rem);
+    max-width: 380px;
+  }
+
+  .dockContainer {
+    width: 100%;
+    justify-content: space-around;
+    gap: 0.25rem;
+    padding: 0.35rem 0.45rem;
+  }
+
+  .dockButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dockButton:hover,
+  .dockButton:focus-visible {
+    transform: scale(1.08) translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dockWrapper,
+  .dockButton,
+  .tooltip {
+    transition: none !important;
+    transform: none !important;
+  }
+}

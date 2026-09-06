@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styles from "./Contact.module.css";
 import { profileData } from "@/data/profile";
-import { Mail, Copy, Check, Github, Linkedin, Twitter, FileText, Send } from "lucide-react";
+import { Mail, Copy, Check, Github, Linkedin, FileText, Send } from "lucide-react";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -102,18 +102,14 @@ export default function Contact() {
             >
               <Linkedin size={20} />
             </a>
-            {profileData.socials.twitter && (
-              <a
-                href={profileData.socials.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                aria-label="Twitter Profile"
-                id="social-twitter"
-              >
-                <Twitter size={20} />
-              </a>
-            )}
+            <a
+              href={`mailto:${profileData.email}`}
+              className={styles.socialLink}
+              aria-label="Direct Email"
+              id="social-mail-direct"
+            >
+              <Mail size={20} />
+            </a>
           </div>
         </div>
       </div>

@@ -16,7 +16,6 @@ export const profileData: ProfileData = {
   socials: {
     github: "https://github.com/01aptx01",
     linkedin: "https://www.linkedin.com/in/aptx01/",
-    twitter: "https://x.com/01aptx01",
   },
   metrics: [
     { label: "GPAX (KMUTT)", value: "3.50" },

@@ -59,7 +59,6 @@ export interface ProfileData {
   socials: {
     github: string;
     linkedin: string;
-    twitter?: string;
   };
   metrics: {
     label: string;
