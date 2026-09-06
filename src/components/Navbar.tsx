@@ -8,19 +8,36 @@ import { Send } from "lucide-react";
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const accumulatedDelta = useRef(0);
 
   useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY.current;
 
-      // Always show when near the very top
-      if (currentScrollY < 60) {
+      // Always show when near the very top of the page
+      if (currentScrollY <= 80) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current + 8 && currentScrollY > 100) {
-        // Scrolling down -> smoothly hide
+        accumulatedDelta.current = 0;
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // Reset accumulated delta if scroll direction reversed
+      if ((delta > 0 && accumulatedDelta.current < 0) || (delta < 0 && accumulatedDelta.current > 0)) {
+        accumulatedDelta.current = 0;
+      }
+
+      accumulatedDelta.current += delta;
+
+      // Scrolling down past threshold -> smoothly hide navbar
+      if (accumulatedDelta.current > 12) {
         setIsVisible(false);
-      } else if (currentScrollY < lastScrollY.current - 8) {
-        // Scrolling up -> smoothly reveal
+      }
+      // Scrolling up past threshold -> smoothly reveal navbar
+      else if (accumulatedDelta.current < -12) {
         setIsVisible(true);
       }
 

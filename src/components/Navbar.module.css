@@ -3,17 +3,25 @@
   top: 1.25rem;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 950;
   display: flex;
   justify-content: center;
   padding: 0 1.25rem;
   pointer-events: none;
-  transition: transform 0.4s var(--ease-spring), opacity 0.35s ease;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  will-change: transform, opacity;
 }
 
 .headerHidden {
   transform: translateY(-135%);
   opacity: 0;
+  pointer-events: none;
+}
+
+.headerHidden .navContainer {
+  pointer-events: none;
 }
 
 .navContainer {

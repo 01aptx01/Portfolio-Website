@@ -34,14 +34,18 @@ export default function FloatingDock() {
   const [isPastHero, setIsPastHero] = useState<boolean>(false);
 
   useEffect(() => {
-    // Show only when scrolled down past the first screen (Hero)
+    // Show ONLY when strictly scrolled down past the first screen (Hero section)
     const handleScroll = () => {
       const heroEl = document.getElementById("hero");
+      const scrollY = window.scrollY;
+
       if (heroEl) {
         const rect = heroEl.getBoundingClientRect();
-        setIsPastHero(rect.bottom < window.innerHeight * 0.5);
+        // Hero is passed ONLY when its bottom is <= 80px from viewport top AND scrolled > 400px
+        const passed = rect.bottom <= 80 && scrollY > 400;
+        setIsPastHero(passed);
       } else {
-        setIsPastHero(window.scrollY > 400);
+        setIsPastHero(scrollY > window.innerHeight * 0.85);
       }
     };
 
@@ -76,6 +80,12 @@ export default function FloatingDock() {
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    if (id === "hero") {
+      setIsPastHero(false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setActiveSection("hero");
+      return;
+    }
     const target = document.getElementById(id);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
