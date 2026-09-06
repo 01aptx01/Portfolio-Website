@@ -121,7 +121,7 @@ export default function Hero() {
         <div className={styles.eyebrowWrapper}>
           <div className={styles.eyebrowBadge}>
             <span className={styles.pulseDot} />
-            <span>The Platform for Scalable Architecture</span>
+            <span>Full-Stack Software Engineer • Available for Opportunities</span>
           </div>
         </div>
 
@@ -129,7 +129,7 @@ export default function Hero() {
         <div className={styles.stageRow} ref={stageRowRef}>
           {/* Left Hero Word */}
           <h1 className={styles.displayLeft}>
-            Intelligence
+            Teeranan
           </h1>
 
           {/* Authentic 3D WebGL Origami Plane Canvas with Golden Particle Tail */}
@@ -143,7 +143,7 @@ export default function Hero() {
 
           {/* Right Hero Word */}
           <h1 className={styles.displayRight}>
-            in motion
+            Pakdeekhan
           </h1>
         </div>
 

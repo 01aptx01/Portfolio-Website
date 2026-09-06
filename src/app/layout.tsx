@@ -11,12 +11,12 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Dev — Full-Stack Software Engineer & Systems Architect",
-  description: "Personal developer portfolio showcasing high-throughput systems, resilient microservices, and ethereal user interfaces crafted with precision.",
-  keywords: ["Software Engineer", "Full-Stack Developer", "Next.js", "TypeScript", "Distributed Systems", "Backend Engineer"],
-  authors: [{ name: "Alex Dev" }],
+  title: "Teeranan Pakdeekhan (Dew) — Full-Stack Software Engineer & Systems Architect",
+  description: "Personal developer portfolio showcasing high-throughput systems, resilient cloud microservices, and ethereal user interfaces crafted with precision.",
+  keywords: ["Software Engineer", "Full-Stack Developer", "Next.js", "TypeScript", "Distributed Systems", "Backend Engineer", "Teeranan Pakdeekhan"],
+  authors: [{ name: "Teeranan Pakdeekhan" }],
   openGraph: {
-    title: "Alex Dev — Full-Stack Software Engineer",
+    title: "Teeranan Pakdeekhan (Dew) — Full-Stack Software Engineer",
     description: "End-to-end software engineering, distributed systems, and frontend craft.",
     type: "website",
     locale: "en_US",

@@ -168,7 +168,7 @@
 }
 
 .displayLeft {
-  font-size: clamp(3.2rem, 7.8vw, 8.8rem);
+  font-size: clamp(2.8rem, 6.8vw, 8.2rem);
   font-weight: 750;
   letter-spacing: -0.04em;
   line-height: 0.95;
@@ -181,7 +181,7 @@
 }
 
 .displayRight {
-  font-size: clamp(3.2rem, 7.8vw, 8.8rem);
+  font-size: clamp(2.8rem, 6.8vw, 8.2rem);
   font-weight: 750;
   letter-spacing: -0.04em;
   line-height: 0.95;

@@ -12,7 +12,7 @@ export default function Navbar() {
           <div className={styles.brandIcon}>
             <Send size={16} />
           </div>
-          <span>Alex.dev</span>
+          <span>Dew.dev</span>
         </Link>
 
         <ul className={styles.links}>

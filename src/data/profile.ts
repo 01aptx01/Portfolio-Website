@@ -1,21 +1,21 @@
 import { ProfileData } from "./types";
 
 export const profileData: ProfileData = {
-  name: "Alex Dev",
+  name: "Teeranan Pakdeekhan (Dew)",
   role: "Full-Stack Software Engineer",
   subRole: "Systems Architecture • Frontend Craft • Cloud Engineering",
-  tagline: "Building resilient systems and ethereal user experiences with end-to-end craft.",
+  tagline: "Building resilient systems, scalable architectures, and ethereal user experiences with end-to-end craft.",
   bio: [
-    "I am a software engineer focused on building robust, scalable digital experiences from architectural foundations up to pixel-level interactions.",
-    "My engineering philosophy centers on clean abstractions, deep modules, verifiable correctness, and purposeful aesthetics that make complex systems effortless to navigate."
+    "I am a full-stack software engineer and systems architect passionate about crafting high-performance digital experiences from deep architectural foundations up to pixel-level interactions.",
+    "My engineering philosophy centers on clean abstractions, deep modules, verifiable correctness, and purposeful aesthetics that make complex systems effortless and intuitive to navigate."
   ],
   location: "Bangkok, Thailand (Available for Global Remote)",
   status: "Open for Software Engineering Opportunities",
-  email: "alex.engineer@example.com",
+  email: "teeranan.dev@gmail.com",
   socials: {
-    github: "https://github.com/alex-dev",
-    linkedin: "https://linkedin.com/in/alex-dev",
-    twitter: "https://x.com/alex_dev",
+    github: "https://github.com/01aptx01",
+    linkedin: "https://linkedin.com/in/teeranan-pakdeekhan",
+    twitter: "https://x.com/01aptx01",
   },
   metrics: [
     { label: "Years Experience", value: "3+" },
