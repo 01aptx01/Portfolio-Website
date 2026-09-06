@@ -178,6 +178,7 @@
   text-align: right;
   z-index: 12;
   margin: 0;
+  transform: translateY(clamp(-3.2rem, -3.8vw, -1.6rem));
 }
 
 .displayRight {
@@ -191,6 +192,7 @@
   text-align: left;
   z-index: 12;
   margin: 0;
+  transform: translateY(clamp(1.6rem, 3.8vw, 3.2rem));
 }
 
 .planeWrapper {
@@ -349,6 +351,7 @@
   .displayLeft,
   .displayRight {
     text-align: center;
+    transform: none;
     font-size: clamp(2.75rem, 13vw, 4.5rem);
     line-height: 1.05;
   }
