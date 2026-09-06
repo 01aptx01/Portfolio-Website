@@ -205,6 +205,11 @@
   justify-content: center;
   pointer-events: none;
   --plane-scale: 0.72;
+  transform: translate3d(var(--flight-x, 0px), var(--flight-y, 0px), 0)
+             rotate(var(--flight-rot, 0deg))
+             scale(var(--flight-scale, 1));
+  opacity: var(--flight-opacity, 1);
+  will-change: transform, opacity;
 }
 
 @media (min-width: 1200px) {
