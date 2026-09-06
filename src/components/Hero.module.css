@@ -371,3 +371,13 @@
     max-width: 100%;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .cloudLeft,
+  .cloudRight {
+    animation: none !important;
+  }
+  .planeWrapper {
+    transform: none !important;
+  }
+}

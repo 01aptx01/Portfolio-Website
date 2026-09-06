@@ -13,7 +13,7 @@
   /* Neutral Typography (Refined Slate / Charcoal) */
   --text-primary: #181d28;          /* Deep ink slate */
   --text-secondary: #404859;        /* Balanced neutral slate */
-  --text-muted: #697386;            /* Soft slate for captions */
+  --text-muted: #475367;            /* Slate darkened to pass WCAG AA (5.4:1 contrast ratio) */
   --text-inverse: #ffffff;          /* White text for dark surfaces */
 
   /* Accent & Highlight Colors */
@@ -237,5 +237,49 @@ button {
   50% {
     opacity: 0.75;
     transform: scale(1.04);
+  }
+}
+
+/* ==============================================================================
+   WCAG Accessibility Enhancements
+   ============================================================================== */
+
+/* #C2: Universal High-Contrast Keyboard Focus Indicators */
+:focus-visible {
+  outline: 2.5px solid var(--accent-indigo);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* #F1: Skip to Content Bypass Block */
+.skipToContent {
+  position: absolute;
+  top: -9999px;
+  left: 1.5rem;
+  background: var(--accent-indigo);
+  color: var(--text-inverse);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: var(--shadow-card-hover);
+  transition: top 0.2s ease;
+}
+
+.skipToContent:focus {
+  top: 1.25rem;
+}
+
+/* #M1: Reduced Motion Preference Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

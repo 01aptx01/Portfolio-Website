@@ -31,8 +31,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={plusJakarta.variable}>
       <body>
+        <a href="#main-content" className="skipToContent">
+          Skip to main content
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

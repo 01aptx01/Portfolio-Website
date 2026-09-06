@@ -17,6 +17,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   metrics: string[];
+  image?: string;
   challenges: {
     problem: string;
     solution: string;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./Projects.module.css";
 import { projectsData } from "@/data/projects";
 import { FolderGit2, ArrowRight, Github, ExternalLink } from "lucide-react";
+import ProjectMarquee from "./ProjectMarquee";
 
 export default function Projects() {
   return (
@@ -17,7 +18,12 @@ export default function Projects() {
             Curated selection of high-throughput distributed systems, performant frontend engines, and full-stack solutions.
           </p>
         </div>
+      </div>
 
+      {/* Semplice-Inspired Interactive Project Visual Showcase */}
+      <ProjectMarquee />
+
+      <div className="container">
         <div className={styles.bentoGrid}>
           {projectsData.map((project, index) => {
             // Assign varying bento column spans for visual rhythm

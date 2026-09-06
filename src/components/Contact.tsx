@@ -31,36 +31,32 @@ export default function Contact() {
           </p>
 
           {/* 1-Click Copyable Email Pill */}
-          <div
+          <button
+            type="button"
             className={styles.emailPillContainer}
             onClick={handleCopyEmail}
-            role="button"
-            tabIndex={0}
-            aria-label="Click to copy email address"
+            aria-label={`Copy email address ${profileData.email}`}
             id="btn-copy-email"
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                handleCopyEmail();
-              }
-            }}
           >
-            <Mail size={18} color="var(--accent-coral)" />
+            <Mail size={18} color="var(--accent-coral)" aria-hidden="true" />
             <span className={styles.emailText}>{profileData.email}</span>
-            <div className={`${styles.copyButton} ${copied ? styles.copiedToast : ""}`}>
+            <div
+              className={`${styles.copyButton} ${copied ? styles.copiedToast : ""}`}
+              aria-live="polite"
+            >
               {copied ? (
                 <>
-                  <Check size={14} />
+                  <Check size={14} aria-hidden="true" />
                   <span>Copied!</span>
                 </>
               ) : (
                 <>
-                  <Copy size={14} />
+                  <Copy size={14} aria-hidden="true" />
                   <span>Click to copy</span>
                 </>
               )}
             </div>
-          </div>
+          </button>
 
           {/* Primary Action Buttons */}
           <div className={styles.actionButtons}>

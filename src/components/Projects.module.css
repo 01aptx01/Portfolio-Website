@@ -153,6 +153,7 @@
 .deepDiveLink {
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
   gap: 0.4rem;
   font-size: 0.925rem;
   font-weight: 700;
@@ -175,8 +176,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(216, 203, 196, 0.5);

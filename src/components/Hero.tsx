@@ -12,9 +12,15 @@ export default function Hero() {
   const planeWrapperRef = useRef<HTMLDivElement>(null);
   const cloudLeftRef = useRef<HTMLDivElement>(null);
   const cloudRightRef = useRef<HTMLDivElement>(null);
-  const stageRowRef = useRef<HTMLDivElement>(null);
+  const stageRowRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
+    // Respect user's motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
     let currentScroll = window.scrollY;
     let targetScroll = window.scrollY;
     let rafId: number;
@@ -120,32 +126,32 @@ export default function Hero() {
         {/* Top Eyebrow Pill Badge */}
         <div className={styles.eyebrowWrapper}>
           <div className={styles.eyebrowBadge}>
-            <span className={styles.pulseDot} />
+            <span className={styles.pulseDot} aria-hidden="true" />
             <span>Full-Stack Software Engineer • Available for Opportunities</span>
           </div>
         </div>
 
         {/* Centerpiece Stage: Split Typography & Live 3D WebGL Origami Paper Airplane */}
-        <div className={styles.stageRow} ref={stageRowRef}>
+        <h1 className={styles.stageRow} ref={stageRowRef} aria-label="Teeranan Pakdeekhan">
           {/* Left Hero Word */}
-          <h1 className={styles.displayLeft}>
+          <span className={styles.displayLeft}>
             Teeranan
-          </h1>
+          </span>
 
           {/* Authentic 3D WebGL Origami Plane Canvas with Golden Particle Tail */}
-          <div
+          <span
             ref={planeWrapperRef}
             className={styles.planeWrapper}
-            aria-label="3D Origami paper airplane flying in motion"
+            aria-hidden="true"
           >
             <TrajectoryPlaneCanvas />
-          </div>
+          </span>
 
           {/* Right Hero Word */}
-          <h1 className={styles.displayRight}>
+          <span className={styles.displayRight}>
             Pakdeekhan
-          </h1>
-        </div>
+          </span>
+        </h1>
 
         {/* Trajectory Bottom-Right Editorial Subtext & Actions */}
         <div className={styles.bottomRow}>

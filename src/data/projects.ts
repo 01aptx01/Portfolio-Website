@@ -19,6 +19,7 @@ export const projectsData: Project[] = [
       "Zero message loss across partition failovers",
       "99.99% service availability"
     ],
+    image: "/images/projects/aether-stream.jpg",
     challenges: [
       {
         problem: "Network saturation under high concurrency with standard JSON payloads.",
@@ -58,6 +59,7 @@ export const projectsData: Project[] = [
       "< 12kB gzipped core bundle size",
       "Adopted across 6 production web applications"
     ],
+    image: "/images/projects/nova-ui.jpg",
     challenges: [
       {
         problem: "Layout shifts and jank caused by heavy JavaScript animation libraries.",
@@ -96,6 +98,7 @@ export const projectsData: Project[] = [
       "Reduced incident Mean-Time-To-Detect (MTTD) by 45%",
       "Processed 15TB telemetry monthly"
     ],
+    image: "/images/projects/cloud-pulse.jpg",
     challenges: [
       {
         problem: "Rendering large-scale distributed service maps caused severe browser frame drops.",
@@ -134,6 +137,7 @@ export const projectsData: Project[] = [
       "100% test coverage on recovery mechanisms",
       "Deterministic crash recovery within 1.2s"
     ],
+    image: "/images/projects/hyper-log.jpg",
     challenges: [
       {
         problem: "Disk I/O bottlenecks during continuous write-ahead logging.",

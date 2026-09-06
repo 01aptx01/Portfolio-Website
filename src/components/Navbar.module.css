@@ -58,12 +58,17 @@
 }
 
 .navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
   font-size: 0.925rem;
   font-weight: 500;
   color: var(--text-secondary);
   transition: color var(--duration-normal) ease;
   position: relative;
-  padding: 0.25rem 0.25rem;
+  padding: 0.5rem 0.5rem;
 }
 
 .navLink:hover {
@@ -77,6 +82,10 @@
 }
 
 .contactBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 0.55rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 600;
