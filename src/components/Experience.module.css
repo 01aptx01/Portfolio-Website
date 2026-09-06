@@ -21,11 +21,26 @@
   left: 7px;
   width: 2px;
   max-height: calc(100% - 1.5rem);
-  background: linear-gradient(180deg, var(--accent-coral) 0%, #ee9b7c 100%);
+  background: linear-gradient(180deg, rgba(238, 155, 124, 0.6) 0%, var(--accent-coral) 60%, #e88060 100%);
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(238, 155, 124, 0.7);
-  transition: height 0.12s ease-out;
+  box-shadow: 0 0 8px rgba(238, 155, 124, 0.5), 0 0 1px rgba(238, 155, 124, 0.9);
+  transition: height 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: height;
   z-index: 1;
+}
+
+/* Glowing moving head at the tip of the progress line */
+.timelineProgressLine::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-coral);
+  box-shadow: 0 0 0 3px rgba(238, 155, 124, 0.3), 0 0 14px rgba(238, 155, 124, 0.7);
 }
 
 .timelineItem {
@@ -42,26 +57,28 @@
   position: absolute;
   top: 0.35rem;
   left: -2rem;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: #ffffff;
-  border: 2.5px solid rgba(216, 203, 196, 0.65);
-  box-shadow: 0 0 0 3px rgba(216, 203, 196, 0.2);
-  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(210, 196, 190, 0.6);
+  box-shadow: 0 0 0 4px rgba(216, 203, 196, 0.15);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
   z-index: 2;
 }
 
 .timelineDot.dotActive {
   border-color: var(--accent-coral);
-  box-shadow: 0 0 0 4px rgba(238, 155, 124, 0.28), 0 0 12px rgba(238, 155, 124, 0.4);
-  transform: scale(1.2);
+  background: var(--accent-coral);
+  box-shadow: 0 0 0 5px rgba(238, 155, 124, 0.22), 0 0 16px rgba(238, 155, 124, 0.45);
+  transform: scale(1.15);
 }
 
 .timelineItem:hover .timelineDot {
-  transform: scale(1.35);
+  transform: scale(1.4);
   border-color: var(--accent-coral);
-  box-shadow: 0 0 0 6px rgba(238, 155, 124, 0.35), 0 0 16px rgba(238, 155, 124, 0.5);
+  background: var(--accent-coral);
+  box-shadow: 0 0 0 7px rgba(238, 155, 124, 0.3), 0 0 20px rgba(238, 155, 124, 0.55);
 }
 
 .experienceCard {

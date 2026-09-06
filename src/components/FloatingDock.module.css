@@ -5,13 +5,13 @@
 
 .dockWrapper {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 2rem;
   left: 50%;
-  transform: translateX(-50%) translateY(32px);
+  transform: translateX(-50%) translateY(80px);
   opacity: 0;
   pointer-events: none;
   z-index: 900;
-  transition: transform 0.4s var(--ease-spring), opacity 0.35s ease;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
 }
 
 .dockVisible {
@@ -21,7 +21,7 @@
 }
 
 .dockHidden {
-  transform: translateX(-50%) translateY(32px) !important;
+  transform: translateX(-50%) translateY(80px) !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
@@ -31,13 +31,13 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.45rem 0.65rem;
+  padding: 0.5rem 0.75rem;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(216, 203, 196, 0.65);
-  box-shadow: 0 12px 36px rgba(70, 60, 55, 0.12), 0 2px 8px rgba(70, 60, 55, 0.04);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(216, 203, 196, 0.6);
+  box-shadow: 0 -2px 0 rgba(255,255,255,0.9) inset, 0 16px 48px rgba(70, 60, 55, 0.14), 0 4px 12px rgba(70, 60, 55, 0.06);
 }
 
 .dockButton {
@@ -49,12 +49,12 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  border: 1px solid rgba(216, 203, 196, 0.5);
+  border: 1px solid rgba(216, 203, 196, 0.45);
   color: var(--text-secondary);
-  box-shadow: 0 2px 6px rgba(70, 60, 55, 0.06);
+  box-shadow: 0 1px 4px rgba(70, 60, 55, 0.08), 0 -1px 0 rgba(255,255,255,0.9) inset;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.25s var(--ease-spring);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   outline: none;
   flex-shrink: 0;
 }

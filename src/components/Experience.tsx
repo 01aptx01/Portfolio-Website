@@ -8,27 +8,39 @@ import { Briefcase } from "lucide-react";
 export default function Experience() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const calcProgress = () => {
       if (!timelineRef.current) return;
       const rect = timelineRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Start line drawing when top of timeline reaches 65% of viewport
-      const startPoint = windowHeight * 0.65;
+      // Start line drawing when top of timeline enters 70% down the viewport
+      const startPoint = windowHeight * 0.7;
       const totalSpan = rect.height;
 
       const currentPosition = startPoint - rect.top;
       const rawProgress = currentPosition / totalSpan;
-      const clampedProgress = Math.min(Math.max(rawProgress, 0), 1);
+      const clamped = Math.min(Math.max(rawProgress, 0), 1);
 
-      setScrollProgress(clampedProgress);
+      setScrollProgress(clamped);
+    };
+
+    const handleScroll = () => {
+      if (rafRef.current !== null) return; // already scheduled
+      rafRef.current = requestAnimationFrame(() => {
+        calcProgress();
+        rafRef.current = null;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    calcProgress(); // run once on mount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   return (
