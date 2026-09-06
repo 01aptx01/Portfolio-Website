@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "./ProjectMarquee.module.css";
 import { projectsData } from "@/data/projects";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
+import { getAssetPath } from "@/lib/basePath";
 
 export default function ProjectMarquee() {
   const [isPaused, setIsPaused] = useState(false);
@@ -53,7 +54,7 @@ export default function ProjectMarquee() {
                 <div className={styles.imageWrapper}>
                   {project.image && (
                     <Image
-                      src={project.image}
+                      src={getAssetPath(project.image)}
                       alt={`Visual prototype preview for ${project.title}`}
                       fill
                       sizes="(max-width: 768px) 340px, 480px"
@@ -93,7 +94,7 @@ export default function ProjectMarquee() {
                 <div className={styles.imageWrapper}>
                   {project.image && (
                     <Image
-                      src={project.image}
+                      src={getAssetPath(project.image)}
                       alt={`Visual prototype preview for ${project.title}`}
                       fill
                       sizes="(max-width: 768px) 340px, 480px"

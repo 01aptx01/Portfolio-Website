@@ -7,6 +7,7 @@ import styles from "./Hero.module.css";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { profileData } from "@/data/profile";
 import TrajectoryPlaneCanvas from "./TrajectoryPlaneCanvas";
+import { getAssetPath } from "@/lib/basePath";
 
 export default function Hero() {
   const planeWrapperRef = useRef<HTMLDivElement>(null);
@@ -83,7 +84,7 @@ export default function Hero() {
       {/* Authentic Trajectory Dawn Lighting Backdrop */}
       <div className={styles.backdropLayer} aria-hidden="true">
         <Image
-          src="/images/trajectory/viz-platform.png"
+          src={getAssetPath("/images/trajectory/viz-platform.png")}
           alt=""
           fill
           priority
@@ -101,7 +102,7 @@ export default function Hero() {
       {/* Authentic Stippled Pointillism Cloud (Left) with Parallax */}
       <div className={styles.cloudLeft} ref={cloudLeftRef} aria-hidden="true">
         <Image
-          src="/images/trajectory/cloud-source-2.png"
+          src={getAssetPath("/images/trajectory/cloud-source-2.png")}
           alt=""
           width={960}
           height={420}
@@ -113,7 +114,7 @@ export default function Hero() {
       {/* Authentic Stippled Pointillism Cloud (Right) with Parallax */}
       <div className={styles.cloudRight} ref={cloudRightRef} aria-hidden="true">
         <Image
-          src="/images/trajectory/cloud-source-1.png"
+          src={getAssetPath("/images/trajectory/cloud-source-1.png")}
           alt=""
           width={580}
           height={380}
