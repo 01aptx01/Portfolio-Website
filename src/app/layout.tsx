@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MotionObserver from "@/components/MotionObserver";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={plusJakarta.variable}>
       <body>
+        <MotionObserver />
         <a href="#main-content" className="skipToContent">
           Skip to main content
         </a>

@@ -15,9 +15,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all var(--duration-normal) var(--ease-spring);
   position: relative;
   overflow: hidden;
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring), background 0.3s ease, border-color 0.3s ease;
 }
 
 .bentoCard::before {
@@ -33,9 +33,10 @@
 }
 
 .bentoCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px) scale(1.008);
   box-shadow: var(--shadow-card-hover);
   background: var(--surface-card-hover);
+  border-color: rgba(238, 155, 124, 0.7);
 }
 
 .bentoCard:hover::before {
@@ -139,6 +140,15 @@
   font-size: 0.775rem;
   font-weight: 600;
   color: var(--text-secondary);
+  transition: all 0.25s var(--ease-spring);
+}
+
+.techBadge:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: var(--accent-coral);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(238, 155, 124, 0.2);
 }
 
 .cardFooter {
@@ -161,9 +171,17 @@
   transition: gap var(--duration-normal) ease;
 }
 
+.deepDiveLink svg {
+  transition: transform 0.3s var(--ease-spring);
+}
+
 .deepDiveLink:hover {
   gap: 0.65rem;
   color: var(--text-primary);
+}
+
+.deepDiveLink:hover svg {
+  transform: translateX(5px);
 }
 
 .externalActions {
@@ -185,11 +203,20 @@
   transition: all var(--duration-normal) var(--ease-spring);
 }
 
+.iconBtn svg {
+  transition: transform 0.3s var(--ease-spring);
+}
+
 .iconBtn:hover {
   background: #ffffff;
   color: var(--text-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-subtle);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(51, 72, 97, 0.14);
+  border-color: rgba(238, 155, 124, 0.7);
+}
+
+.iconBtn:hover svg {
+  transform: scale(1.18) rotate(8deg);
 }
 
 @media (max-width: 1024px) {

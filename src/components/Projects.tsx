@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <section className="section" id="projects">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal">
           <div className="section-pill">
             <FolderGit2 size={14} />
             <span>Featured Engineering</span>
@@ -24,7 +24,7 @@ export default function Projects() {
       <ProjectMarquee />
 
       <div className="container">
-        <div className={styles.bentoGrid}>
+        <div className={`${styles.bentoGrid} revealStagger`}>
           {projectsData.map((project, index) => {
             // Assign varying bento column spans for visual rhythm
             const gridClass =

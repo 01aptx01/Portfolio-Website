@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 7.5rem 2rem 4.5rem 2rem;
+  padding: 6.5rem 2rem 2.5rem 2rem;
   overflow: hidden;
   background-color: #faf5ee;
 }
@@ -115,7 +115,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.25rem;
+  gap: 1.25rem;
 }
 
 /* 5. Eyebrow Badge (Center Top) */
@@ -164,7 +164,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0 2rem 0;
+  margin: 0.25rem 0 0.5rem 0;
 }
 
 .displayLeft {
@@ -234,7 +234,7 @@
   display: flex;
   justify-content: flex-end;
   padding-right: clamp(1rem, 5vw, 6rem);
-  margin-top: 1rem;
+  margin-top: clamp(-2.75rem, -2.5vw, -0.75rem);
 }
 
 .bottomCard {
@@ -261,6 +261,8 @@
 }
 
 .primaryPill {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -276,11 +278,51 @@
   transition: all 0.25s var(--ease-spring);
 }
 
+.primaryPill::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: pillShine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pillShine {
+  0%, 75% {
+    left: -60%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
 .primaryPill:hover {
   background: #233348;
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(51, 72, 97, 0.36);
   color: #ffffff;
+}
+
+.primaryPill svg,
+.secondaryPill svg {
+  transition: transform 0.25s var(--ease-spring);
+}
+
+.primaryPill:hover svg {
+  transform: translateX(4px);
+}
+
+.secondaryPill:hover svg {
+  transform: translate(2px, -2px);
 }
 
 .secondaryPill {

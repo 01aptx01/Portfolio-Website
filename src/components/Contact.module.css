@@ -20,8 +20,18 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(245, 194, 168, 0.25) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(245, 194, 168, 0.28) 0%, rgba(228, 227, 243, 0.18) 35%, transparent 65%);
+  animation: rotateGlow 22s linear infinite;
   pointer-events: none;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .contactTitle {

@@ -6,7 +6,7 @@ export default function Skills() {
   return (
     <section className="section" id="skills">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal">
           <div className="section-pill">
             <Wrench size={14} />
             <span>Technical Proficiencies</span>
@@ -17,7 +17,7 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className={styles.skillsGrid}>
+        <div className={`${styles.skillsGrid} revealStagger`}>
           {skillsData.map((group, index) => (
             <div key={index} className={styles.skillGroupCard}>
               <h3 className={styles.groupCategory}>{group.category}</h3>

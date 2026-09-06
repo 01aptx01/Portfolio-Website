@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <section className="section" id="contact">
       <div className="container">
-        <div className={styles.contactBox}>
+        <div className={`${styles.contactBox} reveal`}>
           <div className="section-pill" style={{ marginBottom: "1.5rem" }}>
             <Mail size={14} />
             <span>Initiate Collaboration</span>

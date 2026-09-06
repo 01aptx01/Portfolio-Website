@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section className="section" id="about">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal">
           <div className="section-pill">
             <Compass size={14} />
             <span>Philosophy & Background</span>
@@ -17,7 +17,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className={styles.aboutGrid}>
+        <div className={`${styles.aboutGrid} revealStagger`}>
           {/* Bio Description Card */}
           <div className={styles.bioCard}>
             <p className={styles.bioLead}>

@@ -177,6 +177,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
   background: var(--accent-indigo);
@@ -188,10 +190,37 @@ button {
   transition: all var(--duration-normal) var(--ease-spring);
 }
 
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: btnShine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes btnShine {
+  0%, 75% {
+    left: -60%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
 .btn-primary:hover {
   background: var(--accent-indigo-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(39, 54, 75, 0.35);
+  box-shadow: 0 8px 24px rgba(39, 54, 75, 0.35);
 }
 
 .btn-secondary {
@@ -217,6 +246,16 @@ button {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.95);
   box-shadow: var(--shadow-card);
+}
+
+.section-pill {
+  transition: all 0.3s var(--ease-spring);
+}
+
+.section-pill:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: var(--shadow-subtle);
 }
 
 /* Keyframe animations */
@@ -282,4 +321,41 @@ button {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .reveal,
+  .revealStagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
+
+/* ==============================================================================
+   Scroll-Triggered Motion & Entrance Transitions
+   ============================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.isRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.revealStagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealStagger.isRevealed > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+.revealStagger.isRevealed > *:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
+.revealStagger.isRevealed > *:nth-child(3) { transition-delay: 0.19s; opacity: 1; transform: translateY(0); }
+.revealStagger.isRevealed > *:nth-child(4) { transition-delay: 0.26s; opacity: 1; transform: translateY(0); }
+.revealStagger.isRevealed > *:nth-child(5) { transition-delay: 0.33s; opacity: 1; transform: translateY(0); }
+.revealStagger.isRevealed > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
+

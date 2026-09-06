@@ -45,7 +45,7 @@
   transform: translateY(-1px);
 }
 
-/* Gradient Fade Edges */
+/* Gradient Fade Edges - Removed heavy milky fog so cards scroll crisp edge-to-edge */
 .marqueeWrapper {
   position: relative;
   width: 100%;
@@ -53,27 +53,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-}
-
-.marqueeWrapper::before,
-.marqueeWrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: clamp(40px, 8vw, 120px);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.marqueeWrapper::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(253, 246, 240, 1) 0%, rgba(253, 246, 240, 0) 100%);
-}
-
-.marqueeWrapper::after {
-  right: 0;
-  background: linear-gradient(-90deg, rgba(253, 246, 240, 1) 0%, rgba(253, 246, 240, 0) 100%);
 }
 
 /* Track Containers */
@@ -140,9 +119,9 @@
 }
 
 .marqueeCard:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 24px 48px -12px rgba(40, 35, 30, 0.22);
-  border-color: rgba(238, 155, 124, 0.8);
+  transform: translateY(-8px) scale(1.025);
+  box-shadow: 0 28px 56px -12px rgba(40, 35, 30, 0.3);
+  border-color: rgba(238, 155, 124, 0.9);
 }
 
 .imageWrapper {
@@ -158,7 +137,7 @@
 }
 
 .marqueeCard:hover .projectImage {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 /* Card Gradient Overlay */
@@ -176,7 +155,30 @@
   justify-content: space-between;
   padding: 1.4rem;
   z-index: 2;
+  overflow: hidden;
   transition: background 0.3s ease;
+}
+
+.cardOverlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+}
+
+.marqueeCard:hover .cardOverlay::after {
+  left: 200%;
 }
 
 .marqueeCard:hover .cardOverlay {

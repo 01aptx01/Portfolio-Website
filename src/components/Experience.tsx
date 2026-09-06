@@ -6,7 +6,7 @@ export default function Experience() {
   return (
     <section className="section" id="experience">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal">
           <div className="section-pill">
             <Briefcase size={14} />
             <span>Career & Education</span>
@@ -17,7 +17,7 @@ export default function Experience() {
           </p>
         </div>
 
-        <div className={styles.timelineContainer}>
+        <div className={`${styles.timelineContainer} revealStagger`}>
           {experienceData.map((item, index) => (
             <div key={index} className={styles.timelineItem}>
               <div className={styles.timelineDot} />

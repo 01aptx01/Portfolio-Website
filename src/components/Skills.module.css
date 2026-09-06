@@ -12,15 +12,16 @@
   border-radius: var(--radius-lg);
   padding: 2.25rem 2rem;
   box-shadow: var(--shadow-card);
-  transition: all var(--duration-normal) var(--ease-spring);
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring), background 0.3s ease, border-color 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .skillGroupCard:hover {
-  transform: translateY(-3px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-card-hover);
   background: var(--surface-card-hover);
+  border-color: rgba(238, 155, 124, 0.6);
 }
 
 .groupCategory {
@@ -53,11 +54,14 @@
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(216, 203, 196, 0.35);
-  transition: background var(--duration-normal) ease;
+  transition: all 0.25s var(--ease-spring);
 }
 
 .skillItem:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
+  transform: translateX(5px);
+  border-color: rgba(238, 155, 124, 0.7);
+  box-shadow: 0 4px 12px rgba(90, 80, 75, 0.08);
 }
 
 .skillName {
