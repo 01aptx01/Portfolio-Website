@@ -7,39 +7,81 @@ import { Briefcase } from "lucide-react";
 
 export default function Experience() {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const rafRef = useRef<number | null>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const calcProgress = () => {
+    let currentProgress = 0;
+    let targetProgress = 0;
+    let rafId: number | null = null;
+    let isRunning = false;
+
+    const updateDots = (progress: number) => {
+      const total = experienceData.length;
+      dotRefs.current.forEach((dot, idx) => {
+        if (!dot) return;
+        // Dot activates slightly before the line tip reaches its exact center
+        const threshold = idx / Math.max(total - 1, 1);
+        const isActive = progress >= threshold - 0.02 && progress > 0;
+        if (isActive) {
+          dot.classList.add(styles.dotActive);
+        } else {
+          dot.classList.remove(styles.dotActive);
+        }
+      });
+    };
+
+    const loop = () => {
+      // Silky smooth lerp damping (0.075 for maximum fluidity)
+      const diff = targetProgress - currentProgress;
+      if (Math.abs(diff) > 0.0003) {
+        currentProgress += diff * 0.075;
+      } else {
+        currentProgress = targetProgress;
+      }
+
+      if (lineRef.current) {
+        lineRef.current.style.height = `${currentProgress * 100}%`;
+        lineRef.current.style.opacity = currentProgress > 0.005 ? "1" : "0";
+      }
+      updateDots(currentProgress);
+
+      if (Math.abs(targetProgress - currentProgress) > 0.0003) {
+        rafId = requestAnimationFrame(loop);
+      } else {
+        isRunning = false;
+        rafId = null;
+      }
+    };
+
+    const startLoop = () => {
+      if (!isRunning) {
+        isRunning = true;
+        rafId = requestAnimationFrame(loop);
+      }
+    };
+
+    const handleScroll = () => {
       if (!timelineRef.current) return;
       const rect = timelineRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Start line drawing when top of timeline enters 70% down the viewport
-      const startPoint = windowHeight * 0.7;
+      // Start line drawing when top of timeline enters 75% down the viewport
+      const startPoint = windowHeight * 0.75;
       const totalSpan = rect.height;
 
       const currentPosition = startPoint - rect.top;
-      const rawProgress = currentPosition / totalSpan;
-      const clamped = Math.min(Math.max(rawProgress, 0), 1);
+      const raw = currentPosition / totalSpan;
+      targetProgress = Math.min(Math.max(raw, 0), 1);
 
-      setScrollProgress(clamped);
-    };
-
-    const handleScroll = () => {
-      if (rafRef.current !== null) return; // already scheduled
-      rafRef.current = requestAnimationFrame(() => {
-        calcProgress();
-        rafRef.current = null;
-      });
+      startLoop();
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    calcProgress(); // run once on mount
+    handleScroll(); // initial measurement
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -63,21 +105,20 @@ export default function Experience() {
 
           {/* Dynamic scroll-following progress line */}
           <div
+            ref={lineRef}
             className={styles.timelineProgressLine}
-            style={{ height: `${scrollProgress * 100}%` }}
+            style={{ height: "0%" }}
             aria-hidden="true"
           />
 
           {experienceData.map((item, index) => {
-            const threshold = (index + 0.15) / experienceData.length;
-            const isDotActive = scrollProgress >= threshold;
-
             return (
               <div key={index} className={styles.timelineItem}>
                 <div
-                  className={`${styles.timelineDot} ${
-                    isDotActive ? styles.dotActive : ""
-                  }`}
+                  ref={(el) => {
+                    dotRefs.current[index] = el;
+                  }}
+                  className={styles.timelineDot}
                   aria-hidden="true"
                 />
                 <div className={styles.experienceCard}>

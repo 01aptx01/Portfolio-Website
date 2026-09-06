@@ -21,11 +21,10 @@
   left: 7px;
   width: 2px;
   max-height: calc(100% - 1.5rem);
-  background: linear-gradient(180deg, rgba(238, 155, 124, 0.6) 0%, var(--accent-coral) 60%, #e88060 100%);
+  background: linear-gradient(180deg, rgba(238, 155, 124, 0.45) 0%, var(--accent-coral) 55%, #e88060 100%);
   border-radius: 2px;
-  box-shadow: 0 0 8px rgba(238, 155, 124, 0.5), 0 0 1px rgba(238, 155, 124, 0.9);
-  transition: height 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: height;
+  box-shadow: 0 0 10px rgba(238, 155, 124, 0.6), 0 0 2px rgba(238, 155, 124, 0.9);
+  will-change: height, opacity;
   z-index: 1;
 }
 

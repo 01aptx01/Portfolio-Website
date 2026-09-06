@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🌅 Portfolio Website
+# 🌅 Teeranan Pakdeekhan — Portfolio Website
 
-**An ultra-premium, type-safe developer portfolio & case study engine built with Next.js (App Router), TypeScript, and CSS Modules.**
+**An ultra-premium, type-safe developer portfolio & case study engine built with Next.js (App Router), TypeScript, and pure CSS Modules.**
 
-[![Next.js](https://img.shields.io/badge/Next.js-14.2.25-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.23-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![CSS Modules](https://img.shields.io/badge/CSS%20Modules-Pure%20Vanilla-ff69b4?style=for-the-badge&logo=css3&logoColor=white)](https://github.com/css-modules/css-modules)
 [![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/01aptx01/Portfolio-Website/actions/workflows/ci-cd.yml)
@@ -14,7 +14,7 @@
 
 <br />
 
-[Features](#-key-features) • [Interface Preview](#-interface-preview-feature-breakdown) • [Architecture](#-project-architecture) • [Getting Started](#-getting-started) • [Content Guide](#-content-customization-guide) • [ADRs](#-architectural-decisions--governance)
+[Overview](#-overview) • [Interface Showcase](#-interface-showcase) • [Key Features](#-key-features) • [Architecture](#-project-architecture) • [Getting Started](#-getting-started) • [Content Guide](#-content-customization-guide) • [CI/CD](#-cicd-automation-pipeline)
 
 </div>
 
@@ -22,98 +22,84 @@
 
 ## 📖 Overview
 
-The **Dawn Pastel Editorial Portfolio** is an all-round developer portfolio designed with an editorial aesthetic inspired by morning skies, refined magazine typography, and warm tactile surfaces. Engineered from inception under strict **Software Development Life Cycle (SDLC)** governance, **Matt Pocock Engineering Standards**, and **ADR-documented decisions**, it offers blazing performance, strict type safety, zero bloat, and an unforgettable user experience.
+The **Editorial Developer Portfolio** is an interactive, tactile web experience crafted for **Teeranan Pakdeekhan (Dew)** — Computer Science Undergraduate (Class of 2028, GPAX 3.5), Software Engineer & Distributed Systems Researcher.
 
-### ✨ Core Highlights
+Designed around morning dawn lighting aesthetics, editorial typography, and buttery 60/120fps physics animations, the website showcases production projects, core capabilities, academic research, and technical milestones without third-party CSS framework overhead.
 
-- **Dawn Pastel Editorial Aesthetics**: A curated color palette blending dawn sky blues, sunrise apricots, and soft rose quartz accents with tactile glassmorphism.
-- **Bento Grid Showcase**: A responsive, asymmetrical grid hierarchy prioritizing flagship projects with tags, metrics, and live indicators.
-- **Dynamic Case Study Routes (`/projects/[slug]`)**: Dedicated deep-dive architectural breakdowns with problem statements, solutions, system metrics, and technical diagrams.
-- **1-Click Interactive Contact Pill**: Instant clipboard copy with animated haptic feedback and toast notification state.
-- **Zero-Runtime Overhead**: Native CSS Modules with CSS custom properties (variables)—no utility framework bloat, 100% style isolation.
-- **Decoupled Data Layer**: Clean separation of content from UI logic via strongly-typed TypeScript models in `src/data/`.
+### ✨ Highlights at a Glance
+
+- **Trajectory 3D WebGL Origami Centerpiece**: Real-time canvas tracking scroll depth with physics-based flight angle and stippled wind trail.
+- **Smart Directional Navbar**: Auto-hides smoothly when scrolling down and reappears instantly when scrolling up, maintaining clean reading focus.
+- **Glassmorphic Floating Dock**: macOS-inspired bottom quick navigation pill with active section indicators, interactive tooltips, and automatic Hero-screen suppression.
+- **Physics-Damped Experience Timeline**: Real-time requestAnimationFrame (RAF) lerp-damped scroll progress line with a glowing head follower and expanding milestone rings.
+- **Authentic Brand Tech Marquee**: Dual-stream endless ticker rendering official vector SVG tech logos with monochromatic frosted glass cards.
+- **Decoupled Data Architecture**: Strongly typed TypeScript single-source-of-truth modules (`src/data/*`) separating content completely from markup.
+- **Static Site Generation (SSG)**: Blazing fast sub-second load times with pre-rendered HTML and dynamic project case studies (`/projects/[slug]`).
 
 ---
 
-## 📸 Interface Preview (Feature Breakdown)
+## 📸 Interface Showcase
 
-Each section of the application has been purposefully architected and polished for both desktop and mobile viewports.
-
-### 1. Hero Section & Origami Paper Plane Centerpiece
-> Features an SVG stippled flight trail, dynamic status badge, and call-to-action buttons styled in frosted glassmorphism.
+### 1. Hero Section & Origami Flight Canvas
+> Features real-time WebGL paper airplane physics, dawn atmospheric blooms, availability pulse indicator, and frosted glass CTAs.
 
 ![Hero Section Preview](docs/assets/preview/hero-preview.png)
 
-- **Status Indicator**: Pulse dot showcasing immediate work availability.
-- **Vector Artwork**: Crisp SVG geometric paper plane with dashed wind trails.
-- **Tactile CTAs**: Gradient primary action paired with frosted secondary link with micro-hover physics.
+- **Interactive Flight Dynamics**: Interactive WebGL airplane banking smoothly according to scroll progression.
+- **Dawn Light Architecture**: Dual peach bloom & lavender ambient atmospheric backdrops.
+- **Action Triggers**: One-click quick scroll triggers for Projects and Contact.
 
 ---
 
-### 2. Editorial About & Engineering Philosophy
-> A warm, magazine-style introduction outlining core technical principles and problem-solving mindset.
+### 2. Tech Stack Marquee & Core Capabilities
+> Dual continuous ticker displaying authentic brand vector logos paired with three-pillar engineering capabilities.
 
-![About Section Preview](docs/assets/preview/about-preview.png)
+![Marquee and Capabilities Preview](docs/assets/preview/marquee-capabilities-preview.png)
 
-- **Subtle Glass Card**: High-contrast slate typography on frosted translucent backdrop (`backdrop-filter: blur(12px)`).
-- **Core Philosophies**: Structured highlights emphasizing production resilience, developer ergonomics, and system craft.
+- **Authentic Vector Logos**: Official SVGs for Next.js, TypeScript, React, Node.js, Python, PostgreSQL, Docker, Tailwind CSS, and Git.
+- **Capabilities Matrix**: Clear focus areas covering Frontend Craft, Distributed Systems, and AI & Computer Vision.
 
 ---
 
 ### 3. Bento Grid Project Showcase
-> Asymmetrical, visually balanced grid highlighting flagship applications with live demo tags and direct routes.
+> Asymmetrical visual hierarchy prioritizing flagship software engineering case studies.
 
 ![Bento Grid Projects Preview](docs/assets/preview/bento-projects-preview.png)
 
-- **Visual Hierarchy**: Large 2-column feature card for flagship project, complemented by balanced secondary cards.
-- **Metadata Chips**: Color-coded category tags (`Fullstack AI`, `Open Source`, `Mobile IoT`) and tech stack pills.
-- **Smooth Navigation**: Hover zoom states and direct links to dedicated route pages.
+- **Feature Distribution**: 2-column flagship feature card complemented by balanced secondary system cards.
+- **Live Metrics & Tags**: Domain pills (Distributed Systems, NLP & ML, Low-level Systems, Cybersecurity).
+- **Direct Case Studies**: Seamless navigation to dedicated `/projects/[slug]` deep-dive routes.
 
 ---
 
-### 4. Case Study Deep-Dive Route (`/projects/[slug]`)
-> In-depth system case studies providing recruiters and engineering leads with architectural proof points.
+### 4. Physics-Damped Milestones & Experience Timeline
+> Chronological narrative of university research, academic roles, and software contributions.
 
-#### Top Hero & Impact Metrics
-![Project Detail Hero](docs/assets/preview/project-detail-hero.png)
+![Experience Timeline Preview](docs/assets/preview/experience-preview.png)
 
-#### Architecture Diagram & Technical Decisions
-![Project Detail Architecture](docs/assets/preview/project-detail-architecture.png)
-
-- **Impact Metric Pills**: Quantified results (e.g., *"< 120ms Latency"*, *"100k+ Events/sec"*).
-- **Architecture Callout Block**: Visual system flow diagrams and technical stack breakdowns.
-- **Return Navigation**: Seamless back-button preserving scroll state and user orientation.
+- **RAF Lerp Progress Line**: Linear interpolation damping ensures the vertical progress line glides like silk across all scroll speeds without stuttering.
+- **Glowing Head Follower**: Real-time illuminated coral follower at the tip of the line tracking scroll depth.
+- **Concentric Active Rings**: Milestone dots bloom into coral rings with soft ambient shadows as the progress line connects them.
 
 ---
 
-### 5. Skills & Technical Proficiencies
-> Multi-category breakdown grouping modern frontend, distributed backend, and DevOps tooling.
+### 5. Floating Navigation Dock & Smart Navbar
+> macOS-style bottom dock with instant section jumping and responsive top bar.
 
-![Skills Section Preview](docs/assets/preview/skills-preview.png)
+![Floating Dock Preview](docs/assets/preview/floating-dock-preview.png)
 
-- **Categorized Badges**: Distinct groupings for Frontend, Backend, Cloud & DevOps, and Architecture.
-- **Proficiency Highlights**: Clean, readable tag clouds that avoid unquantifiable percentage bars in favor of proven tech stacks.
-
----
-
-### 6. Experience & Career Trajectory
-> Chronological journey tracking engineering impact, milestones, and organizational leadership.
-
-![Experience Section Preview](docs/assets/preview/experience-preview.png)
-
-- **Timeline Stem**: Connected stippled line anchoring career milestones.
-- **Impact Bullet Points**: Action-oriented descriptions detailing team leadership, architectural refactors, and performance gains.
+- **Contextual Visibility**: Floating dock remains strictly hidden while on the Hero page, appearing smoothly once scrolled into content.
+- **Smart Top Navbar**: Detects scroll direction using accumulated delta—smoothly sliding out of view on scroll down and returning on scroll up.
 
 ---
 
-### 7. Interactive Contact Pill & Instant Feedback
-> One-click email clipboard copy with visual feedback toast and quick social links.
+### 6. Interactive Contact Pill & Instant Feedback
+> One-click email clipboard copy with visual feedback toast and social channels.
 
-![Contact Toast Preview](docs/assets/preview/contact-toast-preview.png)
+![Contact Section Preview](docs/assets/preview/contact-toast-preview.png)
 
-- **One-Click Clipboard**: Instant `navigator.clipboard.writeText` execution.
-- **Active State Toast**: Seamless transition from default button state to *"Copied to clipboard!"* toast notification.
-- **Direct Reach-Out Channels**: Direct links to GitHub, LinkedIn, and Twitter/X.
+- **1-Click Clipboard**: Instant `navigator.clipboard.writeText` with copied toast confirmation.
+- **Verified Channels**: Direct reach-outs via GitHub and LinkedIn.
 
 ---
 
@@ -121,46 +107,43 @@ Each section of the application has been purposefully architected and polished f
 
 ```
 Portfolio-Website/
-├── .agents/skills/              # Matt Pocock AI & engineering practice skills
-│   ├── code-review/
-│   ├── codebase-design/
-│   ├── domain-modeling/
-│   └── tdd/
+├── .agents/skills/              # Specialized agent workflows & engineering skills
+├── .github/workflows/           # GitHub Actions CI/CD automation
+│   └── ci-cd.yml                # Typecheck, Lint, Build & Static Deployment
 ├── docs/
-│   ├── adr/                     # Architectural Decision Records (ADRs)
+│   ├── adr/                     # Architectural Decision Records
 │   │   ├── 0001-nextjs-app-router-typescript.md
 │   │   └── 0002-css-modules-design-tokens.md
-│   └── assets/preview/          # High-resolution interface preview documentation
+│   └── assets/preview/          # High-resolution documentation previews
 ├── public/
-│   ├── preview/                 # Static previews for web distribution
+│   ├── images/trajectory/       # WebGL 3D textures & backdrop art
+│   ├── preview/                 # Static web previews
 │   └── favicon.ico
 ├── src/
 │   ├── app/
-│   │   ├── globals.css          # Design tokens (Dawn Pastel palette & stipples)
-│   │   ├── layout.tsx           # Semantic root HTML5, metadata & Outfit font
-│   │   ├── page.tsx             # Main landing page assembling sections
-│   │   └── projects/
-│   │       └── [slug]/
-│   │           └── page.tsx     # Dynamic case study route with generateStaticParams
-│   ├── components/              # Modular UI components with scoped CSS
-│   │   ├── Navbar.tsx           # Floating glass pill navigation bar
-│   │   ├── Hero.tsx             # Origami centerpiece & headline
-│   │   ├── About.tsx            # Editorial biography & values
+│   │   ├── globals.css          # Design tokens & color system
+│   │   ├── layout.tsx           # Root layout, metadata & Outfit typography
+│   │   ├── page.tsx             # Main assembly page
+│   │   └── projects/[slug]/     # Dynamic SSG project case study routes
+│   ├── components/              # Scoped CSS Module UI Components
+│   │   ├── Navbar.tsx           # Directional auto-hide header
+│   │   ├── FloatingDock.tsx     # Bottom quick navigation dock
+│   │   ├── Hero.tsx             # 3D Origami canvas & headline
+│   │   ├── TechMarquee.tsx      # Dual-stream vector tech stack marquee
+│   │   ├── Capabilities.tsx     # Three-pillar capabilities cards
+│   │   ├── About.tsx            # Personal background & engineering ethos
 │   │   ├── Projects.tsx         # Bento Grid showcase
-│   │   ├── Skills.tsx           # Technical taxonomy cards
-│   │   ├── Experience.tsx       # Chronological career timeline
+│   │   ├── Experience.tsx       # RAF lerp scroll timeline
 │   │   └── Contact.tsx          # 1-click clipboard contact card
-│   └── data/                    # Decoupled TypeScript Single-Source-of-Truth
-│       ├── types.ts             # Domain models (Project, SkillCategory, Experience)
-│       ├── profile.ts           # Author bio, contact details, social links
-│       ├── projects.ts          # Complete case studies & project metadata
-│       ├── skills.ts            # Technical skills grouped by domain
-│       └── experience.ts        # Work history & career achievements
-├── CONTEXT.md                   # Bounded domain vocabulary & glossary
-├── next.config.mjs              # Next.js production configuration
-├── tsconfig.json                # Strict TypeScript configuration
-├── package.json                 # Dependency manifests
-└── README.md                    # Repository documentation
+│   └── data/                    # Type-safe Single-Source-of-Truth
+│       ├── types.ts             # Domain models (Profile, Project, Experience, Capability)
+│       ├── profile.ts           # Author bio, contact, and social links
+│       ├── projects.ts          # Complete case studies & metrics
+│       ├── capabilities.ts      # Core competencies
+│       └── experience.ts        # Academic history, milestones & research
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
 ---
@@ -169,11 +152,12 @@ Portfolio-Website/
 
 | Layer | Technology | Rationale |
 | :--- | :--- | :--- |
-| **Framework** | [Next.js 14 App Router](https://nextjs.org/) | Modern React Server Components (RSC), built-in static optimization, and standard nested routing. |
-| **Language** | [TypeScript 5](https://www.typescriptlang.org/) | Strict type checking across data models, props, and routing parameters. |
-| **Styling** | Vanilla CSS Modules | Zero-runtime CSS, complete style encapsulation, zero build-time utility generation overhead. |
-| **Typography** | [Outfit](https://fonts.google.com/specimen/Outfit) via `next/font` | Clean geometric sans-serif loaded with zero layout shift (zero CLS). |
-| **Data Flow** | Static Data Modules (`src/data/*`) | Total decoupling of content from markup; editable without touching JSX or CSS. |
+| **Framework** | [Next.js 14 App Router](https://nextjs.org/) | React Server Components (RSC), built-in static optimization (SSG), and zero-layout-shift routing. |
+| **Language** | [TypeScript 5](https://www.typescriptlang.org/) | Strict type contracts across all domain models, component props, and dynamic route params. |
+| **Styling** | Pure CSS Modules | Zero-runtime CSS overhead, 100% style encapsulation, no build-time Tailwind generation delay. |
+| **Animation Physics** | `requestAnimationFrame` + Lerp | Hardware-accelerated 60/120fps smooth interpolation for 3D flight canvas and timeline tracking. |
+| **Typography** | [Outfit](https://fonts.google.com/specimen/Outfit) via `next/font` | Clean geometric sans-serif loaded with zero Cumulative Layout Shift (CLS). |
+| **Data Layer** | Decoupled TypeScript Modules | Pure separation of concerns: edit profile, projects, or milestones in `src/data/` without touching JSX. |
 
 ---
 
@@ -185,8 +169,8 @@ Portfolio-Website/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/portfolio-website.git
-cd portfolio-website
+git clone https://github.com/01aptx01/Portfolio-Website.git
+cd Portfolio-Website
 ```
 
 ### 2. Install Dependencies
@@ -198,122 +182,77 @@ npm install
 ```bash
 npm run dev
 ```
-Navigate to [http://localhost:3000](http://localhost:3000) to view the live site with Hot Module Replacement (HMR).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### 4. Build for Production
 ```bash
 npm run build
 npm run start
 ```
-The optimized static build will be generated in `.next/` and ready for high-performance deployment.
+
+### 5. Quality Verification
+```bash
+npm run typecheck    # Strict TypeScript validation
+npm run lint         # ESLint Next.js Core Web Vitals checks
+```
 
 ---
 
 ## ✏️ Content Customization Guide
 
-All portfolio content is intentionally decoupled into clean, typed data modules in `src/data/`:
+All personal and technical content is isolated in `src/data/`:
 
-### Personal Profile & Socials
+### 1. Personal Profile & Links
 Edit [`src/data/profile.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/src/data/profile.ts):
 ```typescript
 export const profileData = {
-  name: "Your Name",
-  role: "Senior Full-Stack Engineer",
-  tagline: "Crafting resilient web architectures...",
-  status: "Available for Q3/Q4 contracts",
-  email: "your.email@domain.com",
+  name: "Teeranan Pakdeekhan",
+  preferredName: "Dew",
+  role: "Computer Science Undergraduate & Software Engineer",
+  email: "teerananpakdeekhan@gmail.com",
   socials: {
-    github: "https://github.com/your-username",
-    linkedin: "https://linkedin.com/in/your-username",
-    twitter: "https://twitter.com/your-username",
+    github: "https://github.com/01aptx01",
+    linkedin: "https://www.linkedin.com/in/aptx01/",
   },
 };
 ```
 
-### Projects & In-Depth Case Studies
-Edit [`src/data/projects.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/src/data/projects.ts):
-```typescript
-export const projectsData: Project[] = [
-  {
-    slug: "project-slug",
-    title: "Project Title",
-    tagline: "One-line executive summary",
-    category: "Fullstack AI",
-    bentoSpan: "col-span-2", // "col-span-2" for flagship, "col-span-1" for regular
-    featured: true,
-    liveUrl: "https://...",
-    githubUrl: "https://github.com/...",
-    caseStudy: {
-      overview: "...",
-      challenge: "...",
-      solution: "...",
-      architecture: "...",
-      metrics: ["< 50ms P99", "10k DAU"],
-    },
-  },
-];
-```
+### 2. Projects & Case Studies
+Edit [`src/data/projects.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/src/data/projects.ts) to add or modify project case studies, metrics, and architecture details.
 
-### Technical Skills
-Edit [`src/data/skills.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/src/data/skills.ts) to add or organize skill categories and badges.
-
-### Experience Timeline
-Edit [`src/data/experience.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/src/data/experience.ts) to update roles, dates, company names, and achievements.
+### 3. Milestones & Experience
+Edit [`src/data/experience.ts`](file:///f:/ComSci/Coding/Project/Portfolio-Website/src/data/experience.ts) to adjust academic roles, research contributions, and timelines.
 
 ---
 
 ## 🔄 CI/CD Automation Pipeline
 
-The repository integrates a full continuous integration and deployment workflow powered by **GitHub Actions** ([`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml)):
+The repository features an automated workflow configured with **GitHub Actions** ([`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml)):
 
 ```mermaid
 graph LR
-    Push([Push to main]) --> Checkout[Checkout Code]
+    Push([Push / PR]) --> Checkout[Checkout Code]
     Checkout --> Cache[Restore Next.js Cache]
     Cache --> Install[npm ci]
     Install --> TypeCheck[tsc --noEmit]
     TypeCheck --> Lint[next lint]
     Lint --> Build[next build]
-    Build --> Artifact[Upload Build Artifact]
-    Artifact --> Deploy[Deploy to GitHub Pages / Release]
+    Build --> Artifact[Artifact Verified]
+    Artifact --> Deploy[Deploy to Production]
 ```
 
-- **Automated Quality Gates (CI)**:
-  - **Type Safety**: Strictly validates all TypeScript interfaces with `tsc --noEmit`.
-  - **ESLint**: Runs Next.js Core Web Vitals checks.
-  - **Optimized Build**: Verifies static generation (SSG) with zero warnings or errors.
-  - **Intelligent Caching**: Caches `.next/cache` and `~/.npm` across workflow runs for fast sub-minute builds.
-- **Continuous Deployment (CD)**:
-  - Automatically triggers on successful `push` to `main`.
-  - Uploads compiled production artifacts and prepares deployment to GitHub Pages or static cloud hosts.
-
----
-
-## 🏛️ Architectural Decisions & Governance
-
-This project adheres to formal **Architecture Decision Records (ADRs)** located in `docs/adr/`:
-
-- [ADR-0001: Next.js App Router with TypeScript](docs/adr/0001-nextjs-app-router-typescript.md) — Rationale for selecting Next.js App Router and static export capabilities.
-- [ADR-0002: Vanilla CSS Modules with Design Tokens](docs/adr/0002-css-modules-design-tokens.md) — Strategy for robust styling without external runtime dependencies.
-- [CONTEXT.md](CONTEXT.md) — Comprehensive domain dictionary and ubiquitous language definition.
-
----
-
-## ⚡ Quality & Performance Standards
-
-- **Core Web Vitals**: Zero Cumulative Layout Shift (CLS), sub-second Largest Contentful Paint (LCP).
-- **Accessibility (a11y)**: WCAG 2.1 AA compliant color contrast ratios across all text elements.
-- **SEO & Social Cards**: Semantic HTML5 hierarchy (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`), OpenGraph and Twitter card meta-tags ready.
-- **Responsive Fluid Layouts**: Fully tested across mobile (375px), tablet (768px), and high-resolution desktop (1440px+).
+- **Branch Isolation**:
+  - `dev` branch triggers strict automated CI checks (`typecheck`, `lint`, `build`) without running deployment.
+  - `main` branch triggers full CI + CD deployment to production.
 
 ---
 
 ## 📄 License
 
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the **MIT License**. See `LICENSE` for details.
 
 ---
 
 <div align="center">
-  <sub>Crafted with passion, precision, and dawn sky serenity.</sub>
+  <sub>Crafted with passion, precision, and dawn sky serenity by Teeranan Pakdeekhan.</sub>
 </div>
