@@ -115,7 +115,9 @@ export default function FloatingDock() {
               id={`dock-nav-${item.id}${item.isSpecial ? "-send" : ""}`}
             >
               {item.icon}
-              <span className={styles.tooltip}>{item.label}</span>
+              <span className={styles.tooltip} aria-hidden="true">
+                {item.label}
+              </span>
             </a>
           );
         })}

@@ -93,7 +93,7 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(216, 203, 196, 0.55);
-  border-radius: 28px;
+  border-radius: var(--radius-lg, 22px);
   padding: 4.5rem 2rem;
   display: flex;
   flex-direction: column;

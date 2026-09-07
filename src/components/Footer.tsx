@@ -19,6 +19,12 @@ export default function Footer() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
+    // Respect user's motion preference (WCAG SC 2.2.2 Pause, Stop, Hide)
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const interval = setInterval(() => {
       // Phase 1: Trigger blur fade-out
       setIsAnimating(true);

@@ -22,6 +22,7 @@
   line-height: 1.6;
   margin-bottom: 1.25rem;
   letter-spacing: -0.015em;
+  max-width: 68ch;
 }
 
 .bioParagraph {
@@ -29,6 +30,7 @@
   color: var(--text-secondary);
   line-height: 1.75;
   margin-bottom: 1.5rem;
+  max-width: 68ch;
 }
 
 .bioParagraph:last-child {
@@ -63,9 +65,7 @@
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin-bottom: 0.35rem;
-  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-coral) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
 }
 
 .metricLabel {

@@ -11,6 +11,19 @@ export default function Experience() {
   const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    // Respect user's motion preference (WCAG SC 2.2.2 & SC 2.3.3)
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      if (lineRef.current) {
+        lineRef.current.style.height = "100%";
+        lineRef.current.style.opacity = "1";
+      }
+      dotRefs.current.forEach((dot) => {
+        if (dot) dot.classList.add(styles.dotActive);
+      });
+      return;
+    }
+
     let currentProgress = 0;
     let targetProgress = 0;
     let rafId: number | null = null;

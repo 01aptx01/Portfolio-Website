@@ -94,8 +94,8 @@
 }
 
 .copiedToast {
-  color: #2b9348 !important;
-  background: rgba(43, 147, 72, 0.12) !important;
+  color: #1f7a38 !important;
+  background: rgba(31, 122, 56, 0.12) !important;
 }
 
 /* Actions Row */
@@ -133,4 +133,10 @@
   transform: translateY(-3px);
   box-shadow: var(--shadow-subtle);
   color: var(--accent-coral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contactBox::before {
+    animation: none !important;
+  }
 }

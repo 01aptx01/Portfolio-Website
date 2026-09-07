@@ -181,10 +181,11 @@
 
 .challengeBox {
   margin-bottom: 1.5rem;
-  padding: 1.25rem;
+  padding: 1.25rem 1.5rem;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.5);
-  border-left: 4px solid var(--accent-coral);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(238, 155, 124, 0.45);
+  box-shadow: 0 2px 10px rgba(90, 80, 75, 0.04);
 }
 
 .challengeBox:last-child {
